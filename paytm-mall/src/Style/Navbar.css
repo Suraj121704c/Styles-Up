@@ -1,7 +1,7 @@
 .paytm_mall_logo {
-    width: 100px;
+    width: 150px;
     margin: auto;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 .navbar {
@@ -10,7 +10,7 @@
     justify-content: space-evenly;
     text-align: center;
     align-items: center;
-    margin-top: 1vh;
+    margin-top: 0.3vh;
 }
 
 .navbar a {
