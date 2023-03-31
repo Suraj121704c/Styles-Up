@@ -1,0 +1,25 @@
+.Logo{    
+    margin: auto;
+    width: 120px;    
+}
+
+Flex:hover{
+    cursor:ew-resize;
+}
+.flex-class:hover{
+    cursor: pointer;
+}
+.category-menu.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: var(--speed) ease;
+}
+
+.category-menu.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: var(--speed) ease;
+    
+}
