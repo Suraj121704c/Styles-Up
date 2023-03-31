@@ -1,0 +1,20 @@
+#foot{
+    border: 1px solid transparent;
+    margin-top: 25px;
+    width: 99%;
+    height: 850px;
+    margin: auto;
+}
+#four{
+    border: 1px solid transparent;
+    margin-top: 60px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+}
+#four>div{
+    border: 1px solid transparent;
+    width: auto;
+    height: 200px;
+   
+}
