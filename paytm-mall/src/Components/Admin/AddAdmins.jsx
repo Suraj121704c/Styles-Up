@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useToast, Select, FormControl, Input, Heading, FormLabel, Button } from "@chakra-ui/react";
+import { useToast, Select, FormControl, Input, Heading, FormLabel, Button, Box, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { addAdmin } from "../../Redux/Admin/actions";
 const initForm = {
@@ -45,34 +45,38 @@ const AddAdmins = () => {
     setForm(initForm)
   }
   return (
-    <div>
-      <Heading size='md'>Add Admin</Heading>
+    <Box bg={"blue.900"}  pl={80 } pr={80} w={"100%"} h={"100vh"}>
+      <Heading size='md' color={"white"} >Add Admin</Heading>
       <form onSubmit={formSubmitHandler}>
+        <Stack> 
         <FormControl isRequired>
           {/* If I am not giving unique id than it's showing error but it's not showing the same in AddProducts form */}
-          <FormLabel>Admin Name</FormLabel>
-          <Input type='text' name='name' id='name' background='#fff' htmlSize={45} width='auto' onChange={formChangeHandler} value={form.name} />
-          <FormLabel>Admin Image Link</FormLabel>
-          <Input type='url' name='image' id='image' background='#fff' onChange={formChangeHandler} value={form.image} />
-          <FormLabel>Admin Email</FormLabel>
-          <Input type='email' name='email' id='email' background='#fff' onChange={formChangeHandler} value={form.email} />
-          <FormLabel>Admin Contact No.</FormLabel>
-          <Input type='number' name='contact' id='contact' background='#fff' onChange={formChangeHandler} value={form.contact} />
-          <FormLabel>Admin Password</FormLabel>
+          <FormLabel m={2} color={"white"} >Admin Name</FormLabel>
+          <Input m={2} type='text' name='name' id='name' background='#fff'   onChange={formChangeHandler} value={form.name} />
+          <FormLabel m={2} color={"white"} >Admin Image Link</FormLabel>
+          <Input m={2}  type='url' name='image' id='image' background='#fff' onChange={formChangeHandler} value={form.image} />
+          <FormLabel m={2} color={"white"} >Admin Email</FormLabel>
+          <Input m={2}  type='email' name='email' id='email' background='#fff' onChange={formChangeHandler} value={form.email} />
+          <FormLabel  m={2} color={"white"} >Admin Contact No.</FormLabel>
+          <Input m={2} type='number' name='contact' id='contact' background='#fff' onChange={formChangeHandler} value={form.contact} />
+          <FormLabel m={2} color={"white"}>Admin Password</FormLabel>
           <Input type='password' name='password' id='passoword' background='#fff' onChange={formChangeHandler} value={form.password} />
-          <FormLabel>Admin Category</FormLabel>
+          <FormLabel m={2} color={"white"}>Admin Category</FormLabel>
           {/* I can also pass defaultValue to Select */}
-          <Select placeholder="Select Role" name="role" id='role' background="cornflowerblue" onChange={formChangeHandler}>
+          <Select m={2} placeholder="Select Role" name="role" id='role' background="white" onChange={formChangeHandler}>
             <option value='Technical'>Technical</option>
             <option value='Developer'>Developer</option>
             <option value='Project Manager'>Project Manager</option>
             <option value='Sales'>Sales</option>
             <option value='Customer Executive'>Custumer Executive</option>
           </Select>
-          <Button type='submit' colorScheme='teal' marginTop='2'>Add</Button>
+          <Button m={2} type='submit' bg={"red.400"} colorScheme='red.400' marginTop='2'color={"white"} >
+            Create New Admin 
+          </Button>
         </FormControl>
+        </Stack>
       </form>
-    </div>)
+    </Box>)
 }
 
 export default AddAdmins;
