@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
@@ -11,14 +12,14 @@ export const SingleUserPage = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-  // this is singleuser
+
 
   
   return (
     <div>
-      {/*<===================Navbar start here*===========================>/}
+   
    {/* <Navbar/> */}
-   {/*<=====================SingleuserDiv start here=========================>  */}
+
    <Box bg='#f4f4f4'>
 
 <Box fontSize='xl'>SingleProductPage</Box>
@@ -61,3 +62,5 @@ export const SingleUserPage = () => {
     </div>
   )
 }
+
+
