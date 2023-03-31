@@ -2,7 +2,7 @@ import { Flex, Box, FormControl, FormLabel, Input, Stack, Button, Heading, Text,
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers, signup } from "../redux/Auth/actions";
+import { getUsers, signup } from "../Redux/Auth/actions";
 
 export const Signup = () => {
   const initUser = { email: "", password: "", name: "", cart: [], orders: [] }
