@@ -1,29 +1,39 @@
 
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Grid, GridItem, Image, SimpleGrid, Text } from '@chakra-ui/react';
-import {Navbar} from "..Components/Navbar"
+import { useEffect } from 'react';
+import { useState } from 'react';
+
 export const SingleUserPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [data, setData] = useState("")
+  const Jewellary = useSelector((store) => {
+    return store.electronicsReducer.Jewellery;
+  });
+
+  console.log(Jewellary)
 
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+  useEffect(() => {
+    const data = Jewellary.find((el) => el.id === +id)
+    setData(data)
+  }, [])
+
+  console.log(data)
 
 
-  
   return (
     <div>
-   
-   {/* <Navbar/> */}
 
-   <Box bg='#f4f4f4'>
+      {/* <Navbar/> */}
 
-<Box fontSize='xl'>SingleProductPage</Box>
-<SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} w='100%' mt='30px'>
+      <Box bg='#f4f4f4'>
+
+        <Box fontSize='xl'>SingleProductPage</Box>
+        {/* <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} w='100%' mt='30px'>
     <Box p='20px' display='flex' h='450px' bg='white'>
         <Image border='1px solid gray' src={productData.img} alt="image" w='80px' h='80px' />
         <Image className="hoverToIncreaseWidth" mt='70px' ml={{ base: '10px', sm: '20px', md: '70px', lg: '80px' }} src={productData.img} alt="image" w='200px' h='300px' />
@@ -53,12 +63,12 @@ export const SingleUserPage = () => {
         <Text p='10px'>More Products</Text><hr />
         <Text p='10px'>Best sellers & Top Offers on Tales & Stories</Text>
     </Box>
-</SimpleGrid>
+</SimpleGrid> */}
 
-{/* =========================Footer section start here================================== */}
-{/* <Footer/> */}
+        {/* =========================Footer section start here================================== */}
+        {/* <Footer/> */}
 
-</Box>
+      </Box>
     </div>
   )
 }
