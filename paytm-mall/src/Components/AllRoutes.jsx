@@ -1,10 +1,8 @@
-import { Box } from '@chakra-ui/react'
-import React from 'react'
+ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Admin } from "../Pages/Admin"
 import Home from '../Pages/Home'
 import { SingleUserPage } from '../Admin/Pages/SingleUserPage'
-import AdminHome from "../Admin/Pages/AdminHome/AdminHome";
 import Products from "../Pages/Products/Electronics";
 import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
@@ -15,7 +13,7 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/admin" element={<AdminHome />}></Route>
+      <Route path="/admin" element={<Admin/>}></Route>
       <Route path='/fashion/:id' element={<SingleUserPage />} />
         <Route path="/electronic" element={<Products />} />
         <Route path="/jewellery" element={<Jewellery />} />
