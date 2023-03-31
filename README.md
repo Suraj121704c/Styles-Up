@@ -12,3 +12,6 @@ Folder structure : -
         -Electronics
         -FashionReducer
         -HomeDecorationReducer
+
+
+api:- https://flipkart-data.onrender.com/ 
