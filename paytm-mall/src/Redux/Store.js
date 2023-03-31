@@ -4,7 +4,7 @@ import {reducer as AdminReducer} from './Admin/reducer'
 import { reducer as electronicsReducer } from "./ProductReducer/reducer";
 
 const rootReducer = combineReducers({
-  AdminReducer
+  AdminReducer,
   electronicsReducer,
 });
 

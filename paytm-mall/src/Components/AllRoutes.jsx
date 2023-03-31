@@ -16,14 +16,13 @@ const AllRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/admin" element={<AdminHome />}></Route>
-      <Route path='/fashion/:id' element={<SingleUserPage />} /
+      <Route path='/fashion/:id' element={<SingleUserPage />} />
         <Route path="/electronic" element={<Products />} />
         <Route path="/jewellery" element={<Jewellery />} />
         <Route path="/glasses" element={<Glasses />} />
         <Route path="/decoration" element={<Decoration />} />
         <Route path="/autoMobiles" element={<AutoMobiles />} />
       </Routes>
-    </div>
   );
 };
 
