@@ -1,29 +1,23 @@
-
-
-
-
-
-
-
 import React, { useState, useEffect, useRef } from "react";
-import "./Navbar.css";
-import { Box, Text, Image, Flex, VStack, InputGroup } from "@chakra-ui/react";import cartbag from "../utils/cartbag.png";
+import "../Style/Navbar.css";
+import { Box, Text, Image, Flex, VStack, InputGroup } from "@chakra-ui/react";
+import cartbag from "../utils/cartbag.png";
 import list from "../utils/list.png";
 import { Link, NavLink, useSearchParams, useLocation } from "react-router-dom";
-import image from "../Images/logo.png"
+import image from "../Images/logo.png";
 import menu from "../utils/menu.png";
 import search from "../utils/search.png";
 import { BiSearch } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import {setLogout} from "../Redux/Auth/actions"
+import { setLogout } from "../Redux/Auth/actions";
 
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
 
-  //const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const isAuth = localStorage.getItem("isAuth")|| false
+  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+  // const isAuth = localStorage.getItem("isAuth")|| false
   // console.log(isAuth);
   const checkScroll = () => {
     if (window.scrollY >= 70) {
@@ -43,12 +37,9 @@ const Navbar = () => {
   const [debounceDiv, setDebounceDiv] = useState(false)
   const [data, setData] = useState([])
   const [searchData, setSearchData] = useState("");
-  
-  
   useEffect(() => {
     fetchData(searchData);
   }, [searchData]);
-
   const fetchData = (searchValue) => {
     fetch(`${url}?_limit=5&q=${searchValue}`)
       .then((res) => res.json())
@@ -86,16 +77,16 @@ const Navbar = () => {
     dispatch(setLogout);
   };
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  //const [category, setCategory] = useState("");
-  const initialCategory = searchParams.get("category")
-  const [category, setCategory] = useState(initialCategory || "")
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const [category, setCategory] = useState("");
+  // const initialCategory = searchParams.get("category")
+  // const [category, setCategory] = useState(initialCategory || "")
 
-  const handleClick = (value) => {
-    console.log(category)
-    setCategory(value)
-    console.log(category)
-  }
+  // const handleClick = (value) => {
+  //   console.log(category)
+  //   setCategory(value)
+  //   console.log(category)
+  // }
 
   return (
     <Box>

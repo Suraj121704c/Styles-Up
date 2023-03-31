@@ -11,9 +11,6 @@ import axios from "axios";
 const getProductsRequest = () => ({ type: GET_PRODUCTS_REQUEST });
 const getProductsSuccess = (payload) => ({ type: GET_PRODUCTS_SUCCESS, payload });
 const getProductstFailure = () => ({ type: GET_PRODUCTS_FAILURE });
-
-
-
 export const getCaroselsDataRequest = () => {
   return { type: GET_CAROSELS_DATA_REQUEST }
 }

@@ -1,14 +1,12 @@
-
-
-// import "../Style/Homepage.css";
+import "../Style/Homepage.css";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
 import { useEffect } from "react";
+import { getProduct } from "../Redux/App/actions";
 import { useDispatch } from "react-redux";
-import Navbar from "../../Components/Navbar";
-import Carousel from '../../Components/Caraousal';
-import Footer from "../../Components/Footer";
-import { getProduct } from "../../Redux/HomeReducer/actions";
+import {Carousel} from "../Components/Carousel";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 
 export const HomePage = () => {
   const dispatch=useDispatch();
@@ -33,7 +31,6 @@ export const HomePage = () => {
   return (
     <>
     <Navbar></Navbar>
-    <Navbar/>
       <div id='main'>
         <div className="product-container">
           <Carousel />
@@ -145,7 +142,6 @@ export const HomePage = () => {
             <h3>More</h3>
           </GridItem>
         </Grid>
-        <Footer/>
         <Footer></Footer>
       </div>
     </>

@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import Mycard from "./MyCard"
 import "../Style/Carousel.css";
 import {useDispatch, useSelector} from "react-redux"
-import { getCarosels } from "../redux/App/actions";
 import {GrLinkNext,GrLinkPrevious} from 'react-icons/gr'
+import { getCarosels } from "../Redux/App/actions";
+
+
+
 
 export const Carousel = () => {
   let box = document.querySelector(".product-carousel");
@@ -11,7 +14,7 @@ export const Carousel = () => {
   let box3 = document.querySelector(".product-carousel3");
 
   const dispatch = useDispatch();
-  const allcarosels = useSelector(store => store.CarouselReducer.allcarosels);
+  const allcarosels = useSelector(store => store.AppReducer.allcarosels);
 
 
   const carouselSlidePrev = () => {
