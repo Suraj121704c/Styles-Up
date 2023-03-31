@@ -1,14 +1,18 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+ 
+import { Admin } from "../Pages/Admin"
+import Home from '../Pages/Home'
+ 
 
 const AllRoutes = () => {
   return (
-    <div> 
         <Routes>
-            <Route path="/admin" element={<AdminHome/>}></Route>
-        </Routes>
-    </div>
+            <Route path="/" element={<Home/>} />
+            <Route path="/admin" element={<Admin/>} />
+        </Routes> 
   )
 }
 
-export default AllRoutes
+export default AllRoutes;
