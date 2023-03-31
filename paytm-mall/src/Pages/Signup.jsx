@@ -123,7 +123,7 @@ export const Signup = () => {
                     bg: "blue.600",
                   }}
                 >
-                  Sign in
+                  Sign Up
                 </Button>
                 <Box display={"flex"} justifyContent="center">
                   <Text as={"span"} textAlign={"center"}>
