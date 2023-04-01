@@ -8,6 +8,7 @@ import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
 import Decoration from "../Pages/Products/Decoration";
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
+ 
 
 const AllRoutes = () => {
   return (
@@ -20,9 +21,12 @@ const AllRoutes = () => {
         <Route path="/glasses" element={<Glasses />} />
         <Route path="/decoration" element={<Decoration />} />
         <Route path="/autoMobiles" element={<AutoMobiles />} />
+        <Route path="/admin" element={<Admin/>}></Route>
       </Routes>
   );
 };
 
 export default AllRoutes;
+ 
+
 
