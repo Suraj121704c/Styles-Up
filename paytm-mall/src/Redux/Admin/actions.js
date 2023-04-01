@@ -132,7 +132,7 @@ export const deleteUser = (id) => async (dispatch) => {
 export const getAdminList = async (dispatch) => {
   dispatch(getAdminListRequest());
   try {
-    const { data } = await axios.get("https://universal-mall-api.onrender.com/admins");
+    const { data } = await axios.get("https://hilarious-erin-shift.cyclic.app/admin");
     dispatch(getAdminListSuccess(data));
   } catch (error) {
     dispatch(getAdminListFailure(error));
