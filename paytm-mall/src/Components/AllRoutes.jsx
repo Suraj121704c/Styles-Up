@@ -10,6 +10,9 @@ import Decoration from "../Pages/Products/Decoration";
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
 import Cart from '../Admin/Pages/Cart'
 
+ 
+
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -22,9 +25,12 @@ const AllRoutes = () => {
         <Route path="/glasses" element={<Glasses />} />
         <Route path="/decoration" element={<Decoration />} />
         <Route path="/autoMobiles" element={<AutoMobiles />} />
+        <Route path="/admin" element={<Admin/>}></Route>
       </Routes>
   );
 };
 
 export default AllRoutes;
+ 
+
 
