@@ -8,12 +8,16 @@ import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
 import Decoration from "../Pages/Products/Decoration";
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
+import Cart from '../Admin/Pages/Cart'
+
  
+
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route  path="/cart" element={<Cart/>}/>
       <Route path="/admin" element={<Admin/>}></Route>
       <Route path='/products/:id' element={<SingleUserPage />} />
         <Route path="/electronic" element={<Products />} />
