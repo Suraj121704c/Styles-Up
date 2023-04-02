@@ -11,6 +11,7 @@ import Home from "../Pages/HomePage/Home";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Cart from '../Admin/Pages/Cart'
 import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
+import Payment from "../Pages/Payment";
 
 
 const AllRoutes = () => {
@@ -22,6 +23,7 @@ const AllRoutes = () => {
       <Route path='/products/:id' element={<SingleUserPage />} />
       <Route path="/electronic" element={<Products />} />
       <Route path="/jewellery" element={<Jewellery />} />
+      <Route path="/payment-secured" element={<Payment />} />
       <Route path="/glasses" element={<Glasses />} />
       <Route path="/decoration" element={<Decoration />} />
       <Route path="/autoMobiles" element={<AutoMobiles />} />

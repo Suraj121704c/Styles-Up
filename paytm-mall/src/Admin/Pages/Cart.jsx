@@ -27,6 +27,17 @@ const Cart = () => {
   const [data, setData] = useState([])
   const [total, setTotal] = useState(0);
 
+
+  const [name,setName]=useState("")
+  const [phone, setPhone] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  const [homestate, setHomestate] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [area, setArea] = useState("");
+  const [landmark, setLandmark] = useState("");
+
   const getCartItems =async ()=> {
     try {
       return axios({
@@ -79,7 +90,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
         justifyContent="space-between"
         bg="#F5F7F7"
         p={"2.5%"}
-        gap="20px"
+        gap="5px"
         flexDir={{ base: "column", md: "row" }}
       >
         <Box
@@ -146,7 +157,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 <Text fontSize={16}>{`₹ ${cart.price * cart.quantity}`}</Text>
                 </Box>
                 <Box>
-                <Button bg={"#870b0b"} textColor={"white"} onClick={()=> handleDelete(cart.id)}>Delete</Button>
+                <Button bg={"#870b0b"} textColor={"whi"} onClick={()=> handleDelete(cart.id)}>Delete</Button>
                 </Box>
                 </ HStack>
             </GridItem>
@@ -273,7 +284,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               >
                 CHECKOUT
               </Button>
-
+{/* <============New Add Address==============> */}
               <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -286,14 +297,14 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                         type="text"
                         required
                         placeholder="Full Name*"
-
+                        onChange={(e) => setName(e.target.value)}
                       />
                       <Input
                         my="2"
                         type="text"
                         required
                         placeholder="Mobile Number*"
-
+                        onChange={(e) => setPhone(e.target.value)}
                       />
                     </Box>
                     <Box style={{ display: "flex", gap: "30px" }}>
@@ -302,7 +313,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                         type="text"
                         required
                         placeholder="Pincode*"
-
+                        onChange={(e) => set(e.target.value)}
                       />
                       <Input
                         my="2"
