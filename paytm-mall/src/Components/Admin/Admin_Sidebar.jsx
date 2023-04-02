@@ -8,11 +8,12 @@ import ManageOrders from './ManageOrders';
 import ManageProducts from './ManageProducts';
 import AddProducts from './AddProducts';
 import AddAdmins from './AddAdmins';
-import Analyse from './Analyse';
  
+import  logo from "./styles-up.jpg"
 import { useDispatch } from 'react-redux';
 // import { setLogout } from '../../redux/Auth/actions';
 import axios from 'axios';
+import Home from '../../Pages/HomePage/Home';
 
 const LinkItems = [
     { name: 'Dashboard', compName: 'Dashboard', heading: 'Dashboard', icon: FiHome },
@@ -21,7 +22,7 @@ const LinkItems = [
     { name: 'Manage Orders', compName: 'ManageOrders', heading: 'Manage Products', icon: FiShoppingCart },
     { name: 'Add Admins', compName: 'AddAdmins', heading: 'Add Admins ', icon: FiPlus },
     { name: 'Manage Admins', compName: 'ManageAdmins', heading: 'Manage Admins', icon: FiUsers },
-    { name: "Analyse", compName: "Analyse", heading: "Analyse", icon: FiActivity }
+   
 ];
 
 function SidebarWithHeader({ children }) {
@@ -42,7 +43,7 @@ function SidebarWithHeader({ children }) {
         else if (compName === 'ManageProducts') return <ManageProducts />
         else if (compName === 'AddProducts') return <AddProducts />
         else if (compName === 'AddAdmins') return <AddAdmins />
-        else if (compName === 'Analyse') return <Analyse />
+        else if (compName === 'Home') return <Home />
     }
     
     useEffect(() => {
@@ -56,7 +57,7 @@ function SidebarWithHeader({ children }) {
             <Box transition="3s ease" bg={useColorModeValue('blue.900', 'gray.900')} borderRight="1px"
                 borderRightColor={useColorModeValue('gray.200', 'gray.700')} w={{ base: 'full', md: 60 }} pos="fixed" h="full" {...rest}>
                 <Flex h="20" alignItems={"center"} justifyContent="center">
-                    <Image width={'40'} src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" />
+                    <Image  w={200} src={ logo} h={20}/>
                 </Flex>
                 {LinkItems.map((link) => (
                     <NavItem onClick={() => setComp(link.compName)} key={link.name} icon={link.icon} color={"white"}>{link.name}</NavItem>
@@ -130,6 +131,12 @@ const MobileNav = ({admin, handleLogout,onOpen, ...rest }) => {
                     variant="ghost"
                     aria-label="open menu"
                     icon={<FiBell />}
+                    color={"white"}
+       
+                    _hover={{
+                        bg: 'white',
+                        color: 'black',
+                    }}
                 />
                 <Flex alignItems={'center'}>
                     <Menu>
@@ -138,10 +145,10 @@ const MobileNav = ({admin, handleLogout,onOpen, ...rest }) => {
                             transition="all 0.3s"
                             _focus={{ boxShadow: 'none' }}>
                             <HStack>
-                                <Avatar size={'sm'} src={admin.image}/>
+                                <Avatar size={'sm'} src="https://avatars.githubusercontent.com/u/111531676?v=4"/>
                                 <VStack display={{ base: 'none', md: 'flex' }} alignItems="flex-start" spacing="1px" ml="2">
                                     <Text fontSize="sm">{admin.name}</Text>
-                                    <Text fontSize="xs" color="gray.600">Admin</Text>
+                                    <Text fontSize="xs"  color={"white"}>Admin</Text>
                                 </VStack>
                                 <Box display={{ base: 'none', md: 'flex' }}>
                                     <FiChevronDown />

@@ -34,7 +34,8 @@ import {
 import axios from "axios";
 
 const getProductDataRequest = () => ({ type: GET_PRODUCTS_REQUEST });
-const getProductDataSuccess = (payload) => ({ type: GET_PRODUCTS_SUCCESS, payload : payload });
+const getProductDataSuccess = (payload) => 
+({ type: GET_PRODUCTS_SUCCESS, payload : payload });
 const getProductDataFailure = () => ({ type: GET_PRODUCTS_FAILURE });
 const addProductRequest = () => ({ type: ADD_PRODUCT_REQUEST });
 const addProductSuccess = (payload) => ({ type: ADD_PRODUCT_SUCCESS, payload });
@@ -68,7 +69,7 @@ const getOrdersFailure = () => ({ type: GET_ORDERS_FAILURE });
 
 const getCartsSuccess = (payload) => ({ type: GET_CARTS_SUCCESS, payload });
 
-export const getProducts = (dispatch) => {
+export const getProducts =  (dispatch) => {
   dispatch(getProductDataRequest());
   axios.get(`https://universal-mall-api.onrender.com/products`)
     .then((res) =>dispatch(getProductDataSuccess(res.data)))
@@ -156,7 +157,7 @@ export const deleteAdmin = (id) => async (dispatch) => {
   dispatch(deleteAdminRequest());
   try {
     let { data } = await axios.delete(
-      `https://universal-mall-api.onrender.com/admins/${id}`
+      `https://hilarious-erin-shift.cyclic.app/admin/${id}`
     );
     dispatch(deleteAdminSuccess(id));
     return data;

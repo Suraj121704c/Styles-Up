@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Table,Thead,Tbody,Tr,Th,Td,TableContainer,Heading,IconButton,useToast,Image,CircularProgress, Box, Grid} from '@chakra-ui/react'
  import {FiEdit, FiUserX} from 'react-icons/fi';
 import SingleProduct from './AdminSingleProduct';
-// import { getProducts } from '../../Redux/Admin/actions'; 
+ 
  
 import { deleteProduct, getProducts, updateProduct } from '../../Redux/Admin/actions';
 
@@ -11,11 +11,11 @@ const ManageProducts = () => {
   const { isLoading, isError, products } = useSelector(store => store.AdminReducer );
   const dispatch = useDispatch();
   const toast = useToast();
- 
+  const [Data, setData] = useState(products)
   useEffect(() => {
-    dispatch(getProducts) 
+    dispatch(getProducts)
   }, [])
-
+  console.log(products)
 
   const handleEdit =   (id , editValue ) => {
     // console.log("id:", id);
@@ -23,6 +23,11 @@ const ManageProducts = () => {
       dispatch(getProducts()) 
      })
        
+   const  editProduct=products.map((item,id)=>(
+      item.id===id ? {...item, price :  editValue } : item 
+   ))
+
+   setData(editProduct);
     toast({
       title: "Price Added Successfully.",
       description: "Price is edited successfully",
@@ -53,11 +58,9 @@ const ManageProducts = () => {
       })
     }
   }
-
-
-  console.log(products)
+ 
   return (
-    <Box ml={[5,10,40]} w={[500,900,1500]} bg={"blue.900"} >
+    <Box bg={"blue.900"}   pl={40 }  w={"100%"} h={"full"}  >
       <Heading size={'md'} color={"white"}>Manage Products</Heading>
  
       {
@@ -82,7 +85,7 @@ const ManageProducts = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {products.map(product=>( 
+              {Data?.map(product=>( 
                   <SingleProduct key={product.id} 
                   product={product}
                   handleEdit={handleEdit}
