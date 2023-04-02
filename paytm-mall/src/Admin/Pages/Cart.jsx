@@ -56,7 +56,7 @@ useEffect(() => {
 useEffect(()=>{
   let Total=0;
   data?.forEach((item)=>(
-   Total+= (+item.price) * (+item.quantity)
+   Total+= (+item.price)*(+item.quantity)
   ))
    setTotal(Total)
    console.log(typeof Total)
@@ -64,7 +64,7 @@ useEffect(()=>{
 
 const handleQuantity=(id, quantity , val)=>{
   data.map((item, index)=> (
-  item.id === id ?   (quantity = quantity + val ) :  quantity 
+  item.id === id ? (quantity = quantity + val ) :  quantity 
   ))
 axios.patch(`https://growup.onrender.com/orders/${id}`,{
   quantity : quantity
@@ -228,7 +228,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 Bag Total
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                ₹
+                ₹{total}
               </Text>
             </Box>
             <Box
