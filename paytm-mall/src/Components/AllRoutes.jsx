@@ -1,28 +1,37 @@
- import React from 'react'
+
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Admin } from "../Pages/Admin"
+import { Admin } from "../Pages/Admin";
 import Products from "../Pages/Products/Electronics";
 import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
 import Decoration from "../Pages/Products/Decoration";
-import { AutoMobiles } from "../Pages/Products/autoMobiles";
 import { HomePage } from '../Pages/HomePage';
 import { Login } from '../Pages/Login';
 import { Signup } from '../Pages/Signup';
+import { AutoMobiles } from "../Pages/Products/autoMobiles";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
+import Cart from '../Admin/Pages/Cart'
+import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
+
 
 const AllRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} /> 
-      <Route path="/admin" element={<Admin/>}></Route>      
-        <Route path="/electronic" element={<Products />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/jewellery" element={<Jewellery />} />
-        <Route path="/glasses" element={<Glasses />} />
-        <Route path="/decoration" element={<Decoration />} />
-        <Route path="/autoMobiles" element={<AutoMobiles />} />
-      </Routes>
+    <Routes>      
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />      
+      <Route path="/" element={<HomePage />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/admin" element={<Admin />}></Route>
+      <Route path='/products/:id' element={<SingleUserPage />} />
+      <Route path="/electronic" element={<Products />} />
+      <Route path="/jewellery" element={<Jewellery />} />
+      <Route path="/glasses" element={<Glasses />} />
+      <Route path="/decoration" element={<Decoration />} />
+      <Route path="/autoMobiles" element={<AutoMobiles />} />
+      <Route path="/admin" element={<Admin />}></Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 };
 

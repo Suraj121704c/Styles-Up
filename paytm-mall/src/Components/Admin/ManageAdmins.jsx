@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import {Table,Thead,Tbody,Tr,Th,Td,TableContainer,Heading,IconButton,useToast,Image,CircularProgress} from '@chakra-ui/react'
+
+import {Table,Thead,Tbody,Tr,Th,Td,TableContainer,Heading,IconButton,useToast,Image,CircularProgress, Box} from '@chakra-ui/react'
+
 import {FiUserX} from 'react-icons/fi';
 import { deleteAdmin, getAdminList } from '../../Redux/Admin/actions';
 
@@ -35,39 +37,48 @@ const ManageAdmins = () => {
    }, []);
    
   return (
-    <div>
-      <Heading size='md'>Manage Admins</Heading>
+
+    <Box  bg={"blue.900"}   pl={40 }  w={"100%"} h={"100vh"} >
+      <Heading size='md' color={"white"} >Manage Admins</Heading>
+
       {isLoadingAdminList && <CircularProgress isIndeterminate color='green.300' />}
       {isErrorAdminList && <h2>Error Occured while getting Admin list</h2>}
         <div>
           {admins.length > 0 && 
-          <TableContainer>
-          <Table variant='striped' colorScheme='teal' size={'lg'}>
-            <Thead>
-              <Tr>
-                <Th>Photo</Th>
-                <Th>Name</Th>
-                <Th>Email</Th>
-                <Th>Contact No.</Th>
-                <Th>Role</Th>
-                <Th>Delete</Th>
+ 
+          <TableContainer color={"white"} >
+          <Table    size={'lg'} bg={"blue.900"} >
+            <Thead   >
+              <Tr >
+                <Th color={"white"} >Photo</Th>
+                <Th color={"white"} >Name</Th>
+                <Th color={"white"} >Email</Th>
+                <Th color={"white"} >Contact No.</Th>
+                <Th color={"white"} >Role</Th>
+                <Th color={"white"} >Delete</Th>
+
               </Tr>
             </Thead>
             <Tbody>
               {admins.map(admin=><Tr key={admin.id}>
-                <Td><Image src={admin.image} alt={admin.name} boxSize='90px' borderRadius='full' /></Td>
+
+                <Td><Image src={admin.image} alt={admin.name} boxSize='90px' borderRadius='full' fontSize={26}/></Td>
                 <Td>{admin.name}</Td>
                 <Td>{admin.email}</Td>
                 <Td>{admin.contact}</Td>
                 <Td>{admin.role}</Td>
-                <Td><IconButton aria-label='Delete database' onClick={()=>handleDelete(admin)} icon={<FiUserX/>}/></Td>
+
+                <Td color={"black"}><IconButton aria-label='Delete database' onClick={()=>handleDelete(admin)} icon={<FiUserX/>}/></Td>
+
               </Tr>)}
             </Tbody>
           </Table>
         </TableContainer>
           }
         </div>
-    </div>
+
+    </Box>
+
   )
 }
 export default ManageAdmins;

@@ -17,7 +17,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  // const isAuth = localStorage.getItem("isAuth")|| false
+  //const isAuth = localStorage.getItem("isAuth")|| false
   // console.log(isAuth);
   const checkScroll = () => {
     if (window.scrollY >= 70) {
@@ -77,16 +77,16 @@ const Navbar = () => {
     dispatch(setLogout);
   };
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const [category, setCategory] = useState("");
-  // const initialCategory = searchParams.get("category")
-  // const [category, setCategory] = useState(initialCategory || "")
+  const [searchParams, setSearchParams] = useSearchParams();
+  //const [category, setCategory] = useState("");
+  const initialCategory = searchParams.get("category")
+  const [category, setCategory] = useState(initialCategory || "")
 
-  // const handleClick = (value) => {
-  //   console.log(category)
-  //   setCategory(value)
-  //   console.log(category)
-  // }
+  const handleClick = (value) => {
+    console.log(category)
+    setCategory(value)
+    console.log(category)
+  }
 
   return (
     <Box>
@@ -161,21 +161,20 @@ const Navbar = () => {
                         }}
                       ></Box>
                       <VStack ml="10px" align="left">
-                        <Link to={`/products?category=${category}`}>
-                          <Text onClick={() => { setCategory("jwellery") }}>Jewellery</Text>
+                        <Link to={`/jewellery`}>
+                          <Text onClick={() => { setCategory("jewellery") }}>Jewellery</Text>
                         </Link>
-                        <Link to={`/products?category=${category}`}>
-                          <Text onClick={() => { setCategory("fashion") }}>Fashion</Text>
+                        <Link to={`/glasses`}>
+                          <Text onClick={() => { setCategory("glasses") }}>Glasses</Text>
                         </Link>
-                        <Link to={`/products?category=${category}`}>
-                          <Text onClick={() => { setCategory("grocery&decor") }}>Grocery & Home Decor</Text>
+                        <Link to={`/decoration`}>
+                          <Text onClick={() => { setCategory("decoration") }}>Decoration</Text>
                         </Link>
-                        <Link to={`/products?category=${category}`}>
-                          <Text onClick={() => { setCategory("electronics") }}>Furniture & Electronics</Text>
+                        <Link to={`/electronic`}>
+                          <Text onClick={() => { setCategory("electronic") }}>Furniture & Electronics</Text>
                         </Link>
-
-                        <Link to="/entertainment">
-                          <Text >Entertainment</Text>
+                        <Link to="/autoMobiles">
+                          <Text onClick={() => { setCategory("autoMobiles") }}>Automobiles</Text>
                         </Link>
 
                         <Link to="/beauty&health">

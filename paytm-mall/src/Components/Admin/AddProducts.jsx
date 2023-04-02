@@ -27,7 +27,9 @@ const AddProducts = () => {
     e.preventDefault();
     const discount = form.originalPrice - form.discountPrice;
     const discountPercent = discount / form.originalPrice * 100;
-    form.originalPrice = `${form.originalPrice}-${discountPercent.toFixed(2)}%`
+
+    form.originalPrice = `${form.originalPrice}-${discountPercent.toFixed(2)}%` 
+
     try {
       dispatch(addProduct(form))
       toast({
@@ -50,56 +52,56 @@ const AddProducts = () => {
   }
 
   return (
-    <div>
-      <Heading size='md'>Add Products</Heading>
-      <Flex>
-        <Box mr={'5'}>
-          <form onSubmit={formSubmitHandler}>
+    <Box bg={"blue.900"} pl={80 } pr={80} w={"100%"} >
+      <Heading size='md' color={"white"} >Add New Product</Heading>
+      <Box  >
+        <form onSubmit={formSubmitHandler}>
+          <Stack  >
             <FormControl isRequired>
-              <FormLabel>Product Name</FormLabel>
-              <Input type='text' name='description' background='#fff' htmlSize={45} width='auto' onChange={formChangeHandler} value={form.description} />
+              <FormLabel m={2} color={"white"}>Product Name</FormLabel>
+              <Input m={2} type='text'
+                name='description'
+                background='#fff'
+                onChange={formChangeHandler}
+                value={form.description}
+                placeholder="Enter Product Name"
+              />
 
-              <FormLabel>Product Brand</FormLabel>
-              <Input type='text' name='brand' background='#fff' onChange={formChangeHandler} value={form.brand} />
-              <FormLabel>Product Image Link</FormLabel>
+              <FormLabel m={2} color={"white"} > Product Brand</FormLabel>
+              <Input m={2} type='text' name='brand' background='#fff' onChange={formChangeHandler}
+                value={form.brand}
+                placeholder="Enter Product Brand" />
+              <FormLabel color={"white"} >Product Image Link</FormLabel>
 
-              <Input type='url' name='img' background='#fff' onChange={formChangeHandler} value={form.img} />
-              <FormLabel>Product Original Price</FormLabel>
+              <Input m={2} type='url' name='img' background='#fff' onChange={formChangeHandler}
+               value={form.img} 
+               placeholder="Enter Product Image"
+               />
+              <FormLabel color={"white"} >Product Original Price</FormLabel>
 
-              <Input type='number' name='originalPrice' background='#fff' onChange={formChangeHandler} value={form.originalPrice} />
-              <FormLabel>Product Discount Price</FormLabel>
+              <Input m={2} type='number' name='originalPrice' background='#fff' 
+              onChange={formChangeHandler} 
+              value={form.originalPrice} 
+              placeholder="Enter Product Price"
+              />
+              <FormLabel m={2} color={"white"} >Product Discount %</FormLabel>
 
-              <Input type='number' name='discountPrice' background='#fff' onChange={formChangeHandler} value={form.discountPrice} />
-              <FormLabel>Product Category</FormLabel>
+              <Input m={2} type='number' name='discountPrice' background='#fff' onChange={formChangeHandler} value={form.discountPrice} 
+               placeholder="Enter  Discount %"
+              />
+              <FormLabel color={"white"} >Product Category</FormLabel>
 
-              <Input type='text' name='category' background='#fff' onChange={formChangeHandler} value={form.category} />
-              <Button type='submit' colorScheme='teal' marginTop='2'>Add</Button>
+              <Input m={2} type='text' name='category' background='#fff'
+               onChange={formChangeHandler} 
+               value={form.category}
+               placeholder="Enter Product Category"
+              />
+              <Button m={2} type='submit' colorScheme='teal' marginTop='2' color={"white"}>Add New Product</Button>
             </FormControl>
-          </form>
-        </Box>
-        <Flex flexDir={'column'} h={'70vh'} alignItems={'center'} justifyContent='center' textAlign='center' bg='white' w={'full'} maxW={'400px'} role={'group'} boxShadow={'2xl'} rounded={'lg'} pos={'relative'} zIndex={1}>
-          <Flex rounded={'lg'} justifyContent={'center'} alignItems={'center'} width={'16vw'} textAlign={'center'} pos={'relative'} _after={{
-            transition: 'all .3s ease', content: '""', w: 'full', h: 'full', pos: 'absolute', top: 5, left: 0, filter: 'blur(15px)', zIndex: -1,
-          }}
-            _groupHover={{
-              _after: {
-                filter: 'blur(20px)',
-              },
-            }}>
-            {form.img && <Image rounded={'lg'} boxSize={150} objectFit={'cover'} src={form.img} />}
-          </Flex>
-          <Stack align={'center'}>
-            {form.description && <Heading fontSize={'md'} fontFamily={'body'} fontWeight={500}>{form.description}</Heading>}
-            <Stack direction={'row'} align={'center'}>
-              {form.discountPrice && <Text fontWeight={800} fontSize={'md'}>₹{form.discountPrice}</Text>}
-              {price[0] && <Text textDecoration={'line-through'} color={'gray.600'} textDecor='line-through'>₹{price[0]}</Text>}
-              {price[1] && <Text color='green.400'>{price[1]}</Text>}
-            </Stack>
-            {form.category && <Heading fontSize={'md'} fontFamily={'body'} color={'blue.200'} fontWeight={400}>{form.category}</Heading>}
           </Stack>
-        </Flex>
-      </Flex>
-    </div>
+        </form>
+      </Box>
+    </Box>
   )
 }
 
