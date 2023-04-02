@@ -42,7 +42,10 @@ const addProductFailure = () => ({ type: ADD_PRODUCT_FAILURE });
 const deleteProductRequest = () => ({ type: DELETE_PRODUCT_REQUEST });
 const deleteProductSuccess = (payload) => ({ type: DELETE_PRODUCT_SUCCESS, payload });
 const deleteProductFailure = () => ({ type: DELETE_PRODUCT_FAILURE });
-const updateProductSuccess = (payload) => ({ type: UPDATE_PRODUCT_SUCCESS, payload });
+
+const updateProductRequest = () => ({ type: UPDATE_PRODUCT_REQUEST });
+ 
+
 const updateProductFailure = () => ({ type: UPDATE_PRODUCT_FAILURE });
 const getUserListRequest = () => ({ type: GET_USERLIST_REQUEST });
 const getUserListSuccess = (payload) => ({ type: GET_USERLIST_SUCCESS, payload });

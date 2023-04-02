@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-import React from 'react'
-import {
-=======
+
+
 import React, { useState } from 'react'
 
 import {
   Grid, GridItem,HStack,
->>>>>>> main
   Box,
   Button,
   Image,
@@ -19,7 +16,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-<<<<<<< HEAD
+
   useDisclosure, H3
 } from "@chakra-ui/react";
 import { useGet } from '../../hooks/useGet'
@@ -29,7 +26,7 @@ const Cart = () => {
   const { isLoading, products, serverError } = useGet(url);
   const { isOpen, onOpen, onClose } = useDisclosure();
   console.log(products);
-=======
+
   useDisclosure
 } from "@chakra-ui/react";
 
@@ -43,6 +40,17 @@ const Cart = () => {
   const [data, setData] = useState([])
   const [total, setTotal] = useState(0);
 
+
+  const [name,setName]=useState("")
+  const [phone, setPhone] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  const [homestate, setHomestate] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [area, setArea] = useState("");
+  const [landmark, setLandmark] = useState("");
+ 
   const getCartItems =async ()=> {
     try {
       return axios({
@@ -87,7 +95,6 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
 }).then(()=> getCartItems())
  
 }
->>>>>>> main
   return (
     <div>
 
@@ -97,6 +104,8 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
         bg="#F5F7F7"
         p={"2.5%"}
         gap="20px"
+
+
         flexDir={{ base: "column", md: "row" }}
       >
         <Box
@@ -126,7 +135,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
             </Text>
           </Box>
 
-<<<<<<< HEAD
+
           <Box name="cart_card">
             {products.map((el) => {
               return (
@@ -139,7 +148,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
             })}
 
           </Box>
-=======
+
           <Grid  gap={5}>
          {
           data?.map((cart)=>(
@@ -160,11 +169,19 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                <HStack gap={10}> 
                <Box ml={10}>
                  
+
                 <Button  bg={"red.700"} isDisabled = {cart.quantity===1} onClick={()=> handleQuantity(cart.id , cart.Quantity ,  -1)}>-</Button>
 
                 <Button isDisabled>{cart.quantity}</Button>
 
                 <Button bg={"green.700"} 
+
+                <Button  bg={"#F25B22"} isDisabled = {cart.quantity===1} onClick={()=> handleQuantity(cart.id , cart.Quantity ,  -1)}>-</Button>
+
+                <Button isDisabled>{cart.quantity}</Button>
+
+                <Button bg={"#F25B22"} 
+
                 onClick={()=> handleQuantity(cart.id , cart.quantity , 1)}>+</Button>
                   {/* <Select  onChange ={ handleChange(cart.id, cart.Quantity, ) }>
                     <option value={1}>1</option>
@@ -177,7 +194,10 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 <Text fontSize={16}>{`₹ ${cart.price * cart.quantity}`}</Text>
                 </Box>
                 <Box>
+
                 <Button onClick={()=> handleDelete(cart.id)}>Delete</Button>
+
+
                 </Box>
                 </ HStack>
             </GridItem>
@@ -185,7 +205,6 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
          }
           
      </Grid>
->>>>>>> main
         </Box>
         <Box
           w={{ base: "100%", sm: "80%", md: "35%" }}
@@ -225,11 +244,10 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               <Text fontWeight="400" fontSize={"1rem"}>
                 Delivery to{" "}
                 <Text as={"span"} fontWeight="600">
-<<<<<<< HEAD
-                  431703
-=======
+
+  
                   800020
->>>>>>> main
+
                 </Text>
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
@@ -265,11 +283,13 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 Bag Total
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-<<<<<<< HEAD
+
                 ₹
-=======
+
                 ₹{total}
->>>>>>> main
+
+                ₹{total}
+
               </Text>
             </Box>
             <Box
@@ -296,17 +316,16 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               p="10px"
             >
               <Text fontWeight="400" fontSize={"1rem"}>
-<<<<<<< HEAD
+
                 Amount Payable
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
                 ₹
-=======
+
                 Amount Payable : {total}
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
                 ₹ {total}
->>>>>>> main
               </Text>
             </Box>
             <Box>
@@ -428,15 +447,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
     </div>
   )
 }
-// "image1": "https://assetscdn1.paytm.com/images/catalog/product/J/JE/JEWVIGHNAHARTA-VIGH1196979EA0CDD9/1562708763888_0..jpg?imwidth=282&impolicy=hq",
-// "Brand": "Vighnaharta",
-// "title": "Silver Brass Ring",
-// "price": 249,
-// "MRP": "1163",
-// "Category": "jewellary",
-// "rating": 4.7,
-// "quantitiy": 1,
-// "id": 1
+
 
 export default Cart
 

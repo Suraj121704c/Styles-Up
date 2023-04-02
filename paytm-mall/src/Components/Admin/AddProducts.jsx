@@ -28,6 +28,7 @@ const AddProducts = () => {
     const discount = form.originalPrice - form.discountPrice;
     const discountPercent = discount / form.originalPrice * 100;
 
+
     form.originalPrice = `${form.originalPrice}-${discountPercent.toFixed(2)}%` 
 
     try {

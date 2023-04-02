@@ -39,6 +39,8 @@ function SidebarWithHeader({ children }) {
 
         if (compName === 'Dashboard') return <ManageUsers />
 
+
+    
         else if (compName === 'ManageAdmins') return <ManageAdmins />
         else if (compName === 'ManageOrders') return <ManageOrders />
         else if (compName === 'ManageProducts') return <ManageProducts />
@@ -56,7 +58,10 @@ function SidebarWithHeader({ children }) {
     const SidebarContent = ({ onClose, ...rest }) => {
         return (
 
+
             <Box transition="3s ease" bg={useColorModeValue('blue.900', 'gray.900')} borderRight="1px"
+
+
 
                 borderRightColor={useColorModeValue('gray.200', 'gray.700')} w={{ base: 'full', md: 60 }} pos="fixed" h="full" {...rest}>
                 <Flex h="20" alignItems={"center"} justifyContent="center">
@@ -64,10 +69,12 @@ function SidebarWithHeader({ children }) {
                 </Flex>
                 {LinkItems.map((link) => (
 
-                    
+                 
                     <NavItem onClick={() => setComp(link.compName)} key={link.name} icon={link.icon} color={"white"}>{link.name}</NavItem>
 
                ))}
+
+         
             </Box>
         );
     };
@@ -120,9 +127,11 @@ const MobileNav = ({admin, handleLogout,onOpen, ...rest }) => {
             height="20"
             alignItems="center"
 
+
             // bg={useColorModeValue('white', 'gray.900')}
 
             bg={useColorModeValue('blue.900', 'gray.900')}
+
 
             borderBottomWidth="1px"
             borderBottomColor={useColorModeValue('gray.200', 'gray.700')}

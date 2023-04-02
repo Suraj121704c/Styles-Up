@@ -113,13 +113,14 @@ export const AutoMobiles = () => {
             <Checkbox
               colorScheme="green"
               value={"-33%"}
-<<<<<<< HEAD
 
-              onChange={handleRating}
-            >
-=======
+
+         
+
+
               onChange={handleRating}>
->>>>>>> main
+
+
               Above 20 to 40%
             </Checkbox>
             <Checkbox

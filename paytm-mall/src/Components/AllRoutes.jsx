@@ -8,19 +8,25 @@ import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
 import Decoration from "../Pages/Products/Decoration";
 
+
 import { HomePage } from '../Pages/HomePage';
 import { Login } from '../Pages/Login';
 import { Signup } from '../Pages/Signup';
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
-
-import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Cart from '../Admin/Pages/Cart'
 import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
 
 
+
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
+
+
+import Payment from "../Pages/Payment";
+
+
+
 const AllRoutes = () => {
   return (
-
     <Routes>
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />      
@@ -30,6 +36,7 @@ const AllRoutes = () => {
       <Route path='/products/:id' element={<SingleUserPage />} />
       <Route path="/electronic" element={<Products />} />
       <Route path="/jewellery" element={<Jewellery />} />
+      <Route path="/payment" element={<Payment />} />
       <Route path="/glasses" element={<Glasses />} />
       <Route path="/decoration" element={<Decoration />} />
       <Route path="/autoMobiles" element={<AutoMobiles />} />
@@ -38,6 +45,5 @@ const AllRoutes = () => {
     </Routes>
   );
 };
-
 
 export default AllRoutes;
