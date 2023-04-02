@@ -1,3 +1,4 @@
+
 import { Box, Button, Heading,} from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import {Link} from "react-router-dom"
@@ -12,4 +13,8 @@ export default function Payment() {
       <Button><Link to="/">GO TO HOME</Link></Button>
     </Box>
   );
+
 }
+
+}
+

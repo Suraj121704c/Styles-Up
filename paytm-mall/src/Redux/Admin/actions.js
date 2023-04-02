@@ -42,8 +42,10 @@ const addProductFailure = () => ({ type: ADD_PRODUCT_FAILURE });
 const deleteProductRequest = () => ({ type: DELETE_PRODUCT_REQUEST });
 const deleteProductSuccess = (payload) => ({ type: DELETE_PRODUCT_SUCCESS, payload });
 const deleteProductFailure = () => ({ type: DELETE_PRODUCT_FAILURE });
+
 const updateProductRequest = () => ({ type: UPDATE_PRODUCT_REQUEST });
  
+
 const updateProductFailure = () => ({ type: UPDATE_PRODUCT_FAILURE });
 const getUserListRequest = () => ({ type: GET_USERLIST_REQUEST });
 const getUserListSuccess = (payload) => ({ type: GET_USERLIST_SUCCESS, payload });
@@ -95,6 +97,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch(deleteProductFailure(error));
   }
 };
+
 export const updateProduct = (id, editValue ) => async (dispatch) => {
   dispatch(updateProductRequest());
   try {

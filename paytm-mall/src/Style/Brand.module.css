@@ -1,0 +1,19 @@
+#brand{
+    border: 1px solid transparent;
+    width: 100%;
+    height: 47  0px;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+#brand>div{
+    border: 1px solid transparent;
+    width: auto;
+    height: auto;   
+    
+
+}
+#brand>div>img{
+    border-radius: 50%;
+}

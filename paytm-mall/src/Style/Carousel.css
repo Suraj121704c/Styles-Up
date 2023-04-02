@@ -1,0 +1,84 @@
+
+.satyam{
+    position: relative;
+    overflow: hidden;
+    /* padding: 26px; */
+  }
+  .product-carousel {
+    padding: 0 20px;
+    padding-right: 30px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    }
+    
+    .pre-btn,
+    .next-btn {
+      position: absolute;
+      top: 16%;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    
+    .next-btn {
+      right: 0;
+    }
+    
+    .next-btn h1,
+    .pre-btn h1 {
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+    /* ------------------------------ */
+    .product-carousel2 {
+      padding: 0 10px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    }
+    
+    .pre-btn2,
+    .next-btn2 {
+      position: absolute;
+      top: 18%;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0);
+  
+    }
+    
+    .next-btn2 {
+      right: 0;
+    }
+    
+    .next-btn h1,
+    .pre-btn h1 {
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+    /* ------------------------------ */
+    
+    .product-carousel3 {
+    padding: 0 10px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    }
+    
+    .pre-btn3,
+    .next-btn3 {
+      position: absolute;
+      top: 18%;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    
+    .next-btn3 {
+      right: 0;
+    }
+    
+    .next-btn h1,
+    .pre-btn h1 {
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+    
