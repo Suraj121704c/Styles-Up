@@ -13,7 +13,7 @@ const ManageProducts = () => {
   const toast = useToast();
   const [Data, setData] = useState(products)
   useEffect(() => {
-    dispatch(getProducts) 
+    dispatch(getProducts)
   }, [])
   console.log(products)
 
@@ -60,7 +60,7 @@ const ManageProducts = () => {
   }
  
   return (
-    <Box ml={[5,10,40]} w={[500,900,1500]} bg={"blue.900"} >
+    <Box bg={"blue.900"}   pl={40 }  w={"100%"} h={"full"}  >
       <Heading size={'md'} color={"white"}>Manage Products</Heading>
  
       {

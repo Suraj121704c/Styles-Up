@@ -1,7 +1,8 @@
 import { Box, Center, Heading, Text, Stack, Image, IconButton, Flex, useToast, Progress, ButtonGroup, Button, FormControl, FormLabel, Input, SimpleGrid, Td, Tr, Modal, ModalOverlay, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, ModalContent, useDisclosure } from '@chakra-ui/react';
  
 import React, { useState } from 'react';
- 
+import { MdDone, MdOutlineEdit  } from 'react-icons/md';
+import {  GoX } from "react-icons/go";
  
 const SingleProduct = ({ product ,  handleEdit,
   handleDelete }) => {
@@ -36,16 +37,14 @@ const SingleProduct = ({ product ,  handleEdit,
                 handleEdit(product.id, editValue);
               }}
             >
-              {/* <MdDone /> */}
-              done
+              <MdDone />           
             </Button>
             <Button
               size={"sm"}
               variant={"ghost"}
               onClick={() => setEditable(false)}
             >
-              {/* <GrClose /> */}
-              close
+              < GoX/>
             </Button>
           </>
         ) : (
@@ -57,8 +56,7 @@ const SingleProduct = ({ product ,  handleEdit,
               variant={"ghost"}
               onClick={() => setEditable(true)}
             >
-              {/* <MdOutlineEdit /> */}
-              done
+              <MdOutlineEdit />
             </Button>
           </Box>
         )}
