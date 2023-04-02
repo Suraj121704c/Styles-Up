@@ -20,7 +20,7 @@ export const SingleUserPage = () => {
   });
 
   console.log(Jewellary)
-const toast=useToast()
+  const toast = useToast()
 
   useEffect(() => {
     dispatch(getJewellery)
@@ -43,14 +43,14 @@ const toast=useToast()
 
   const handleAdd = () => {
     const cartData = {
-     image1 : data.image1,
-     Brand : data.Brand,
-     title : data.title,
-     price : data.price,
-     MRP : data.MRP,
-     Category : data.Category,
-     rating : data.rating,
-     quantitiy : 1
+      image1: data.image1,
+      Brand: data.Brand,
+      title: data.title,
+      price: data.price,
+      MRP: data.MRP,
+      Category: data.Category,
+      rating: data.rating,
+      quantitiy: 1
     }
     dispatch(addToCart(cartData))
     toast({
@@ -85,7 +85,7 @@ const toast=useToast()
 
           </Box><Text fontSize='xs' color='gray'>inclusive of all Taxes</Text>
           <Box mt='60px'>
-            <Button className='addtocart' color='white' m='10px' background='#ef4e28' variant='solid' w='70%' onClick={handleAdd} >  Add To Cart  </Button>
+            <Button className='addtocart' color='white' m='10px' background='#ef4e28' variant='solid' w='70%' onClick={handleAdd} >   <Link to="/cart">PAY NOW</Link></Button>
           </Box>
         </Box>
         <Box bg='#f4f4f4' m='40px' p='20px' borderRadius='8px' border='1px solid gray' align='left' w={{ base: '260px', sm: '250px', md: '200px', lg: 'max-content' }} h={{ base: '250px', sm: '300px', md: 'max-content', lg: 'max-content' }}>
@@ -149,6 +149,6 @@ const toast=useToast()
     </div>
   )
 }
- 
+
 
 
