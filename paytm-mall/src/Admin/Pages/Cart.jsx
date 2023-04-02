@@ -118,10 +118,11 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               <Image src={cart.image1} alt="cart image" h={150} w= {150} />
               </Box>
               <Box> 
+              <Text  fontSize={20}>{cart.title}</Text>
                <Text fontSize={18}>{cart.Category}</Text>
-              
-               <Text fontSize={15}>discount :{`${cart.price}`}</Text>
-         
+               <Text fontSize={18}>Rating : {cart.rating}</Text>
+               <Text fontSize={15}>Discounted Price :{`${cart.price}`}</Text>
+               <Text fontSize={15}>Sold by: Smart Shop </Text>
                {/* Buttons Quantity */}
                </Box>
                </HStack>
@@ -145,7 +146,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 <Text fontSize={16}>{`₹ ${cart.price * cart.quantity}`}</Text>
                 </Box>
                 <Box>
-                <Button onClick={()=> handleDelete(cart.id)}> Remove</Button>
+                <Button onClick={()=> handleDelete(cart.id)}>Delete</Button>
                 </Box>
                 </ HStack>
             </GridItem>
@@ -192,7 +193,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               <Text fontWeight="400" fontSize={"1rem"}>
                 Delivery to{" "}
                 <Text as={"span"} fontWeight="600">
-                  431703
+                  800020
                 </Text>
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
