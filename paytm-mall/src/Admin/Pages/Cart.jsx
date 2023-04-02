@@ -37,7 +37,7 @@ const Cart = () => {
   const [address, setAddress] = useState("");
   const [area, setArea] = useState("");
   const [landmark, setLandmark] = useState("");
-
+  
   const getCartItems =async ()=> {
     try {
       return axios({
@@ -284,7 +284,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
               >
                 CHECKOUT
               </Button>
-{/* <============New Add Address==============> */}
+
               <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -297,14 +297,14 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                         type="text"
                         required
                         placeholder="Full Name*"
-                        onChange={(e) => setName(e.target.value)}
+
                       />
                       <Input
                         my="2"
                         type="text"
                         required
                         placeholder="Mobile Number*"
-                        onChange={(e) => setPhone(e.target.value)}
+
                       />
                     </Box>
                     <Box style={{ display: "flex", gap: "30px" }}>
@@ -313,7 +313,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                         type="text"
                         required
                         placeholder="Pincode*"
-                        onChange={(e) => set(e.target.value)}
+
                       />
                       <Input
                         my="2"
