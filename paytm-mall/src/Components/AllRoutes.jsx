@@ -15,20 +15,20 @@ import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
 
 
 const AllRoutes = () => {
-  return ( 
+  return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route  path="/cart" element={<Cart/>}/>
-      <Route path="/admin" element={<Admin/>}></Route>
-      <Route path='/products/:id' element={<SingleUserPage/>} />
-        <Route path="/electronic" element={<Products />} />
-        <Route path="/jewellery" element={<Jewellery />} />
-        <Route path="/glasses" element={<Glasses />} />
-        <Route path="/decoration" element={<Decoration />} />
-        <Route path="/autoMobiles" element={<AutoMobiles />} />
-        <Route path="/admin" element={<Admin/>}></Route>
-         <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/admin" element={<Admin />}></Route>
+      <Route path='/products/:id' element={<SingleUserPage />} />
+      <Route path="/electronic" element={<Products />} />
+      <Route path="/jewellery" element={<Jewellery />} />
+      <Route path="/glasses" element={<Glasses />} />
+      <Route path="/decoration" element={<Decoration />} />
+      <Route path="/autoMobiles" element={<AutoMobiles />} />
+      <Route path="/admin" element={<Admin />}></Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 };
 

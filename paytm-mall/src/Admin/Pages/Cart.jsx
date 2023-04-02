@@ -12,19 +12,19 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,H3
+  useDisclosure, H3
 } from "@chakra-ui/react";
 import { useGet } from '../../hooks/useGet'
 import { Link } from "react-router-dom";
-const url=`https://growup.onrender.com/orders`
+const url = `https://growup.onrender.com/orders`
 const Cart = () => {
-  const { isLoading, products , serverError } = useGet(url);
+  const { isLoading, products, serverError } = useGet(url);
   const { isOpen, onOpen, onClose } = useDisclosure();
   console.log(products);
   return (
     <div>
 
-<Box
+      <Box
         display={"flex"}
         justifyContent="space-between"
         bg="#F5F7F7"
@@ -60,14 +60,15 @@ const Cart = () => {
           </Box>
 
           <Box name="cart_card">
-          {products.map((el)=>{
-      return (
-          <div key={el.id}>
-            
-      <img src={el.image1} alt="image1" />
-    <h3>{el.title}</h3>
-            </div>
-    )})}
+            {products.map((el) => {
+              return (
+                <div key={el.id}>
+
+                  <img src={el.image1} alt="image1" />
+                  <h3>{el.title}</h3>
+                </div>
+              )
+            })}
 
           </Box>
         </Box>
@@ -175,7 +176,7 @@ const Cart = () => {
                 Amount Payable
               </Text>
               <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                ₹ 
+                ₹
               </Text>
             </Box>
             <Box>
@@ -202,14 +203,14 @@ const Cart = () => {
                         type="text"
                         required
                         placeholder="Full Name*"
-                        
+
                       />
                       <Input
                         my="2"
                         type="text"
                         required
                         placeholder="Mobile Number*"
-                       
+
                       />
                     </Box>
                     <Box style={{ display: "flex", gap: "30px" }}>
@@ -218,14 +219,14 @@ const Cart = () => {
                         type="text"
                         required
                         placeholder="Pincode*"
-                       
+
                       />
                       <Input
                         my="2"
                         type="text"
                         required
                         placeholder="City*"
-                       
+
                       />
                     </Box>
                     <Box style={{ display: "flex", gap: "30px" }}>
@@ -234,14 +235,14 @@ const Cart = () => {
                         type="text"
                         required
                         placeholder="State*"
-                      
+
                       />
                       <Input
                         my="2"
                         type="text"
                         required
                         placeholder="Country*"
-                   
+
                       />
                     </Box>
                     <Input
@@ -249,21 +250,21 @@ const Cart = () => {
                       type="text"
                       required
                       placeholder="Flat No/Building , Street Name*"
-                     
+
                     />
                     <Input
                       my="2"
                       type="text"
                       required
                       placeholder="Area/Locality*"
-                     
+
                     />
                     <Input
                       my="2"
                       type="text"
                       required
                       placeholder="Landmark"
-                     
+
                     />
                     <Text>PS. Your information is safe with us, No spam.</Text>
                   </ModalBody>
@@ -285,7 +286,7 @@ const Cart = () => {
           </Box>
         </Box>
       </Box>
-    {/* {products.map((el)=>{
+      {/* {products.map((el)=>{
       return (
           <div key={el.id}>
             
