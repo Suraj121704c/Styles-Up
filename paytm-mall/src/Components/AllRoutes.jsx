@@ -6,7 +6,6 @@ import Products from "../Pages/Products/Electronics";
 import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
 import Decoration from "../Pages/Products/Decoration";
-
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
 import Home from "../Pages/HomePage/Home";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";

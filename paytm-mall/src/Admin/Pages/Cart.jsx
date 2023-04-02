@@ -12,7 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure, H3
+  useDisclosure
 } from "@chakra-ui/react";
 import { useGet } from '../../hooks/useGet'
 import { Link } from "react-router-dom";
