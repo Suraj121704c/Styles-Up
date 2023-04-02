@@ -65,7 +65,7 @@ const Cart = () => {
           <div key={el.id}>
             
       <img src={el.image1} alt="image1" />
-    
+    <h3>{el.title}</h3>
             </div>
     )})}
 
