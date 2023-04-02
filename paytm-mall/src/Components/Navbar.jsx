@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
 import "../Style/Navbar.css";
 import { Box, Text, Image, Flex, VStack, InputGroup } from "@chakra-ui/react";
@@ -308,3 +309,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

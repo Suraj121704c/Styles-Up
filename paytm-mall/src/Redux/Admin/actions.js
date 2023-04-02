@@ -42,7 +42,6 @@ const addProductFailure = () => ({ type: ADD_PRODUCT_FAILURE });
 const deleteProductRequest = () => ({ type: DELETE_PRODUCT_REQUEST });
 const deleteProductSuccess = (payload) => ({ type: DELETE_PRODUCT_SUCCESS, payload });
 const deleteProductFailure = () => ({ type: DELETE_PRODUCT_FAILURE });
-const updateProductRequest = () => ({ type: UPDATE_PRODUCT_REQUEST });
 const updateProductSuccess = (payload) => ({ type: UPDATE_PRODUCT_SUCCESS, payload });
 const updateProductFailure = () => ({ type: UPDATE_PRODUCT_FAILURE });
 const getUserListRequest = () => ({ type: GET_USERLIST_REQUEST });
@@ -95,11 +94,16 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch(deleteProductFailure(error));
   }
 };
-export const updateProduct = (product) => async (dispatch) => {
+
+export const updateProduct = (id, editValue ) => async (dispatch) => {
   dispatch(updateProductRequest());
   try {
-    const { data } = await axios.patch(`https://universal-mall-api.onrender.com/products/${product.id}`, product);
-    dispatch(updateProductSuccess(data));
+    axios.patch(`https://universal-mall-api.onrender.com/products/${id}`,  {
+   
+    discountPrice : +editValue,
+ 
+    });
+ 
   } catch (error) {
     dispatch(updateProductFailure(error));
   }

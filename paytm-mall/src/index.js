@@ -8,6 +8,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { store } from "./Redux/Store";
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Auth0Provider
