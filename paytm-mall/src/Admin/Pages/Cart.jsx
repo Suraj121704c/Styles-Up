@@ -129,11 +129,11 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                <HStack gap={10}> 
                <Box ml={10}>
                  
-                <Button  bg={"red.700"} isDisabled = {cart.quantity===1} onClick={()=> handleQuantity(cart.id , cart.Quantity ,  -1)}>-</Button>
+                <Button  bg={"#F25B22"} isDisabled = {cart.quantity===1} onClick={()=> handleQuantity(cart.id , cart.Quantity ,  -1)}>-</Button>
 
                 <Button isDisabled>{cart.quantity}</Button>
 
-                <Button bg={"green.700"} 
+                <Button bg={"#F25B22"} 
                 onClick={()=> handleQuantity(cart.id , cart.quantity , 1)}>+</Button>
                   {/* <Select  onChange ={ handleChange(cart.id, cart.Quantity, ) }>
                     <option value={1}>1</option>
@@ -146,7 +146,7 @@ axios.patch(`https://growup.onrender.com/orders/${id}`,{
                 <Text fontSize={16}>{`₹ ${cart.price * cart.quantity}`}</Text>
                 </Box>
                 <Box>
-                <Button onClick={()=> handleDelete(cart.id)}>Delete</Button>
+                <Button bg={"#870b0b"} textColor={"white"} onClick={()=> handleDelete(cart.id)}>Delete</Button>
                 </Box>
                 </ HStack>
             </GridItem>
