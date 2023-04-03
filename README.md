@@ -30,5 +30,6 @@ Address
 
 Payment Page
 
-![Screenshot (181)](https://user-images.githubusercontent.com/112754760/229576946-569ae918-6d42-4688-a702-5ffa984fb24f.png)
+![Screenshot (182)](https://user-images.githubusercontent.com/112754760/229580624-00f1ece0-6940-4f0c-be38-4f2971b39231.png)
+
 
