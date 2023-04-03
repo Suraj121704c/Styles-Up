@@ -3,7 +3,9 @@ import css from "./Electronics.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getELectronics } from "../../Redux/ProductReducer/action";
+ 
 import { Box, Button, Center, CircularProgress, Grid, Image, Text } from "@chakra-ui/react";
+ 
 import Navbar2 from "../../Components/Navbar2";
 import { Footer2 } from "../../Components/Fotter2";
 

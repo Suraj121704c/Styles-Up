@@ -1,4 +1,4 @@
-// import   "../Style/Homepage.css";
+ // import   "../Style/Homepage.css";
 import "../Style/Homepage.css"
 import { Grid, GridItem } from "@chakra-ui/react";
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
