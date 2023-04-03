@@ -1,4 +1,4 @@
-# PAYTM MALL
+# Paytm Mall
 
 Folder structure : - 
  paytm-mall 
