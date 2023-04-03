@@ -14,4 +14,3 @@ Folder structure : -
         -HomeDecorationReducer
 
 
-api:- https://flipkart-data.onrender.com/ 
