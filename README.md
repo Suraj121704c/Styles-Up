@@ -1,4 +1,4 @@
-# -easy-rose-1070
+# PAYTM MALL
 
 Folder structure : - 
  paytm-mall 
