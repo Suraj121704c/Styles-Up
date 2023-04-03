@@ -16,3 +16,19 @@ Sign Up Page
 
 ![Screenshot (175)](https://user-images.githubusercontent.com/112754760/229575093-5182e55b-c9f5-4290-9f03-0acc16fd36f8.png)
 
+Single User Page
+
+![Screenshot (178)](https://user-images.githubusercontent.com/112754760/229576053-262c1f9e-945e-43f4-a947-cb969d420ca4.png)
+
+Cart Page
+
+![Screenshot (179)](https://user-images.githubusercontent.com/112754760/229576819-53544e49-810d-4661-8447-8ba10131d2ba.png)
+
+Address 
+
+![Screenshot (180)](https://user-images.githubusercontent.com/112754760/229576818-c57bf891-67a1-4ea1-b74c-e77c85684c33.png)
+
+Payment Page
+
+![Screenshot (181)](https://user-images.githubusercontent.com/112754760/229576946-569ae918-6d42-4688-a702-5ffa984fb24f.png)
+
