@@ -90,7 +90,7 @@ export const SingleUserPage = () => {
             </Box><Text fontSize='xs' color='gray'>inclusive of all Taxes</Text>
             <Box mt='60px'>
 
-              <Button className='addtocart' color='white' m='10px' background='#ef4e28' variant='solid' w='70%' onClick={handleAdd} >   <Link to="/cart">PAY NOW</Link></Button>
+              <Button className='addtocart' color='white' m='10px' background='#ef4e28' variant='solid' w='70%' onClick={handleAdd} >   ADD TO CART</Button>
 
 
 

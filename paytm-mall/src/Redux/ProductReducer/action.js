@@ -12,7 +12,7 @@ import {
 export const getELectronics = (paramObj) => (dispatch) => {
   dispatch({ type: REQUESTED });
   axios
-    .get(`https://growup.onrender.com/electronics?_limit=12`, paramObj)
+    .get(`https://hilarious-erin-shift.cyclic.app/electronics?_limit=12`, paramObj)
     .then((res) => {
       console.log(res);
       dispatch({ type: ELECTRONIC_SUCCESS, payload: res.data });

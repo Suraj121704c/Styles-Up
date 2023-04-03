@@ -76,7 +76,7 @@ const Cart = () => {
 
   const handleQuantity = (id, quantity, val) => {
     data.map((item, index) =>
-      item.id === id ? (quantity = quantity + val) : quantity
+      item.id === id ? (quantity = quantity + val) : quantity + 1
     );
     axios
       .patch(`https://growup.onrender.com/orders/${id}`, {
