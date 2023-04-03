@@ -225,7 +225,7 @@ const Decoration = () => {
                         w="60%"
                       />
                       <br />
-                      <Text color={"grey 0.5"}>Title : {el.title}</Text>
+                      <Text color={"grey 0.5"} numberOfLines={3}>Title : {el.title}</Text>
 
                       <Text color={"green"}>
                         Discount : {Math.round((el.price / el.MRP) * 100)}%

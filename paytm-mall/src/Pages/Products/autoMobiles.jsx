@@ -210,7 +210,7 @@ export const AutoMobiles = () => {
                         w="60%"
                       />
                       <br />
-                      <Text color={"grey 0.5"}>Title : {el.title}</Text>
+                      <Text color={"grey 0.5"} numberOfLines={1}>Title : {el.title}</Text>
 
                       <Text color={"green"}>
                         Discount : {Math.round((el.price / el.MRP) * 100)}%
