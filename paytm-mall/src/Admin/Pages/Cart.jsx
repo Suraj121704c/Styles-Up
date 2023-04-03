@@ -24,6 +24,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Navbar2 from "../../Components/Navbar2";
 import { Footer2 } from "../../Components/Fotter2";
+import { MdDelete } from "react-icons/md";
 // const url = `https://growup.onrender.com/orders`
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -68,7 +69,7 @@ const Cart = () => {
   // Total
   useEffect(() => {
     let Total = 0;
-    data?.forEach((item) => (Total += +item.price * +item.quantity));
+    data?.forEach((item) => (Total += Number(item.price) * Number(item.quantity+1)));
     setTotal(Total);
     console.log(typeof Total);
   }, [data]);
@@ -83,6 +84,7 @@ const Cart = () => {
       })
       .then(() => getCartItems());
   };
+ 
   return (
     <>
       <Navbar2 />
@@ -134,7 +136,7 @@ const Cart = () => {
                     <Box>
                       <Image
                         src={cart.image1}
-                        alt="cart image"
+                        alt="cart image"f
                         h={150}
                         w={150}
                       />
@@ -162,7 +164,7 @@ const Cart = () => {
                         -
                       </Button>
 
-                      <Button isDisabled>{cart.quantity}</Button>
+                      <Button isDisabled>{cart.quantity+1}</Button>
 
                       <Button
                         bg={"#F25B22"}
@@ -172,25 +174,19 @@ const Cart = () => {
                       >
                         +
                       </Button>
-                      {/* <Select  onChange ={ handleChange(cart.id, cart.Quantity, ) }>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                  </Select> */}
                     </Box>
                     <Box>
                       <Text fontSize={16}>{`₹ ${
-                        cart.price * cart.quantity
+                       cart.price
                       }`}</Text>
                     </Box>
                     <Box>
                       <Button
-                        bg={"#870b0b"}
+                        
                         textColor={"whi"}
                         onClick={() => handleDelete(cart.id)}
                       >
-                        Delete
+                        <MdDelete/>
                       </Button>
                     </Box>
                   </HStack>

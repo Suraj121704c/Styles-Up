@@ -12,6 +12,7 @@ import {
   Text,
   Button,
   VStack,
+  CircularProgress,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
@@ -27,6 +28,8 @@ export const AutoMobiles = () => {
   const auto = useSelector((store) => {
     return store.electronicsReducer.Auto;
   });
+  const { isLoading ,isError } = useSelector((store)=> store.electronicsReducer )
+
   const initialCategory = searchParams.get("Category");
   const [Category, setCategory] = useState(initialCategory || []);
   const initialOrder = searchParams.get("order");
@@ -82,7 +85,8 @@ export const AutoMobiles = () => {
   useEffect(() => {
     dispatch(getAuto(obj));
   }, [location.search]);
-
+ 
+  
   return (
     <>
       <Navbar2 />

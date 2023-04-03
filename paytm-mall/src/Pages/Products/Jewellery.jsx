@@ -12,6 +12,7 @@ import {
   Text,
   Button,
   VStack,
+  CircularProgress,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
@@ -36,6 +37,7 @@ const Jewellery = () => {
   const [Brand, setBrand] = useState(initialBrand || []);
   const initialRating = searchParams.getAll("rating");
   const [rating, setRating] = useState(initialRating || []);
+  const { isLoading ,isError } = useSelector((store)=> store.electronicsReducer )
 
   const handleSort = (e) => {
     setOrder(e.target.value);
@@ -101,6 +103,7 @@ const Jewellery = () => {
   }, [location.search]);
 
   // console.log(jewellery)
+ 
 
   return (
     <>

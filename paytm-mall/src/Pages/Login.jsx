@@ -46,21 +46,22 @@ export const Login = () => {
   // console.log(users);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let checkAdmin = admins.find(
-      (el) => el.email === email && el.password === password
+    let checkAdmin = admins.find((el) =>
+      el.email === email && el.password === password
     );
     if (checkAdmin) {
       localStorage.setItem("adminId", checkAdmin.id);
       toast({
         title: "Login Successfully.",
-        description: ` Welcome Again ${email} as Admin`,
+        description: ` Welcome  ${email}`,
         status: "success",
         duration: 3000,
         position: "top",
         isClosable: true,
       });
-      dispatch(setLogin);
-      navigate("/admin", { replace: true });
+      dispatch(setLogin).then(() => {
+        navigate(location.state, { replace: true });
+      })
     } else {
       let checkUser = users.find(
         (el) => el.email === email && el.password === password
@@ -162,6 +163,14 @@ export const Login = () => {
                     </Text>
                     <Text color="#002E6E" fontWeight="600" as={"span"}>
                       <Link to={"/signup"}>Sign Up</Link>
+                    </Text>
+                  </Box>
+                  <Box display={"flex"} justifyContent="center">
+                    <Text as={"span"} textAlign={"center"}>
+                      If you are an Admin ?{" "}
+                    </Text>
+                    <Text color="#002E6E" fontWeight="600" as={"span"}>
+                      <Link to={"/adminLogin"}>Admin Login Here</Link>
                     </Text>
                   </Box>
                 </Stack>

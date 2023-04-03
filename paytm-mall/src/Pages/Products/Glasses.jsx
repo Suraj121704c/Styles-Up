@@ -11,6 +11,7 @@ import {
   Text,
   Button,
   VStack,
+  CircularProgress,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,6 +36,7 @@ const Glasses = () => {
 
   const initialGender = searchParams.get("order");
   const [gender, setGender] = useState(initialGender || []);
+  const { isLoading ,isError } = useSelector((store)=> store.electronicsReducer )
 
   const handleColor = (e) => {
     let newColors = [...colors];
@@ -93,6 +95,7 @@ const Glasses = () => {
   }, [location.search]);
 
   // console.log(eyeGlases);
+ 
 
   return (
     <>

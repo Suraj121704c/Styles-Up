@@ -1,4 +1,5 @@
-import "../Style/Homepage.css";
+ // import   "../Style/Homepage.css";
+import "../Style/Homepage.css"
 import { Grid, GridItem } from "@chakra-ui/react";
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import { useDispatch } from "react-redux";
 import {Carousel} from "../Components/Carousel";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+ 
 
 export const HomePage = () => {
   const dispatch=useDispatch();
