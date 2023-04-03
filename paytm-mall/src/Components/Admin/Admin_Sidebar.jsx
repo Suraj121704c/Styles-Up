@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Flex, Avatar, HStack, Link, IconButton, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Image } from '@chakra-ui/react';
+import { Box, Flex, Avatar, HStack, Link, IconButton, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Image, useToast } from '@chakra-ui/react';
 import { CloseButton, VStack, Icon, Drawer, DrawerContent, Text } from '@chakra-ui/react';
 import { FiHome, FiCompass, FiMenu, FiBell, FiChevronDown, FiUsers, FiPlus, FiShoppingCart, FiActivity } from 'react-icons/fi';
 import ManageAdmins from './ManageAdmins';
@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 // import { setLogout } from '../../redux/Auth/actions';
 import axios from 'axios';
 import Home from '../../Pages/HomePage/Home';
+import { useNavigate } from 'react-router-dom';
 
 const LinkItems = [
     { name: 'Dashboard', compName: 'Dashboard', heading: 'Dashboard', icon: FiHome },
@@ -31,13 +32,25 @@ function SidebarWithHeader({ children }) {
     const [comp, setComp] = useState('Dashboard');
     const [admin, setadmin] = useState({});
     const adminId = localStorage.getItem('adminId')
-
+    const navigate=useNavigate();
+    const toast=useToast();
     const handleLogout = () => {
-        // dispatch(setLogout);
+        navigate("/");
+        toast({
+            title: "Admin logged out successfully !!!",
+            description: `Please visit us again !!! `,
+            status: "error",
+            duration: 3000,
+            position: "top",
+            isClosable: true,
+          });
       };
-      
+
+   
     const componentChange = (compName = comp) => {
-        if (compName === 'Dashboard') return <ManageAdmins />
+
+        if (compName === 'Dashboard') return   <ManageAdmins />
+ 
         else if (compName === 'ManageAdmins') return <ManageAdmins />
         else if (compName === 'ManageOrders') return <ManageOrders />
         else if (compName === 'ManageProducts') return <ManageProducts />
@@ -54,14 +67,24 @@ function SidebarWithHeader({ children }) {
 
     const SidebarContent = ({ onClose, ...rest }) => {
         return (
+
+
             <Box transition="3s ease" bg={useColorModeValue('blue.900', 'gray.900')} borderRight="1px"
+
+
+
                 borderRightColor={useColorModeValue('gray.200', 'gray.700')} w={{ base: 'full', md: 60 }} pos="fixed" h="full" {...rest}>
                 <Flex h="20" alignItems={"center"} justifyContent="center">
                     <Image  w={200} src={ logo} h={20}/>
                 </Flex>
                 {LinkItems.map((link) => (
+
+                 
                     <NavItem onClick={() => setComp(link.compName)} key={link.name} icon={link.icon} color={"white"}>{link.name}</NavItem>
-                ))}
+
+               ))}
+
+         
             </Box>
         );
     };
@@ -107,13 +130,21 @@ const NavItem = ({ icon, children, ...rest }) => {
 };
 
 const MobileNav = ({admin, handleLogout,onOpen, ...rest }) => {
+    const navigate=useNavigate()
+    const toast=useToast();
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
             px={{ base: 4, md: 4 }}
             height="20"
             alignItems="center"
+
+
+            // bg={useColorModeValue('white', 'gray.900')}
+
             bg={useColorModeValue('blue.900', 'gray.900')}
+
+
             borderBottomWidth="1px"
             borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
             justifyContent={{ base: 'space-between', md: 'flex-end' }}
@@ -161,6 +192,19 @@ const MobileNav = ({admin, handleLogout,onOpen, ...rest }) => {
                             <MenuItem>Profile</MenuItem>
                             <MenuDivider />
                             <MenuItem onClick={handleLogout}>Sign out</MenuItem>
+                            <MenuDivider />
+                            <MenuItem onClick={()=>{
+                               navigate("/")
+                               toast({
+                                title: "Moved to Home Page ...",
+                                description: `Welcome to home page !!!`,
+                                status: "success",
+                                duration: 3000,
+                                position: "top",
+                                isClosable: true,
+                              });
+                            }}>Home</MenuItem>
+                            <MenuDivider />
                         </MenuList>
                     </Menu>
                 </Flex>

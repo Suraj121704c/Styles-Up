@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+
 import {
+  Grid,
+  GridItem,
+  HStack,
   Box,
   Button,
   Image,
@@ -12,292 +16,403 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure, H3
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useGet } from '../../hooks/useGet'
-import { Link } from "react-router-dom";
-const url = `https://growup.onrender.com/orders`
-const Cart = () => {
-  const { isLoading, products, serverError } = useGet(url);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  console.log(products);
-  return (
-    <div>
 
-      <Box
-        display={"flex"}
-        justifyContent="space-between"
-        bg="#F5F7F7"
-        p={"2.5%"}
-        gap="20px"
-        flexDir={{ base: "column", md: "row" }}
-      >
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import Navbar2 from "../../Components/Navbar2";
+import { Footer2 } from "../../Components/Fotter2";
+import { MdDelete } from "react-icons/md";
+// const url = `https://growup.onrender.com/orders`
+const Cart = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [data, setData] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  const [homestate, setHomestate] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [area, setArea] = useState("");
+  const [landmark, setLandmark] = useState("");
+
+  const getCartItems = async () => {
+    try {
+      return axios({
+        method: "get",
+        url: `https://growup.onrender.com/orders`,
+      }).then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      });
+    } catch (error) {
+      console.log("err");
+    }
+  };
+
+  const handleDelete = async (id) => {
+    return axios({
+      method: "delete",
+      url: `https://growup.onrender.com/orders/${id}`,
+    }).then(() => getCartItems());
+  };
+
+  useEffect(() => {
+    getCartItems();
+  }, []);
+
+  // Total
+  useEffect(() => {
+    let Total = 0;
+    data?.forEach((item) => (Total += Number(item.price) * Number(item.quantity+1)));
+    setTotal(Total);
+    console.log(typeof Total);
+  }, [data]);
+
+  const handleQuantity = (id, quantity, val) => {
+    data.map((item, index) =>
+      item.id === id ? (quantity = quantity + val) : quantity
+    );
+    axios
+      .patch(`https://growup.onrender.com/orders/${id}`, {
+        quantity: quantity,
+      })
+      .then(() => getCartItems());
+  };
+ 
+  return (
+    <>
+      <Navbar2 />
+      <div>
         <Box
-          width={"65%"}
-          overflowY="scroll"
-          boxSize={"borderBox"}
-          bg="white"
-          p={"30px"}
+          display={"flex"}
+          justifyContent="space-between"
+          bg="#F5F7F7"
+          p={"2.5%"}
+          gap="5px"
+          flexDir={{ base: "column", md: "row" }}
         >
           <Box
-            display="flex"
-            flexDir={"row"}
-            alignItems="center"
-            columnGap={4}
-            pb="30px"
-            w="100%"
+            width={"65%"}
+            overflowY="scroll"
+            boxSize={"borderBox"}
+            bg="white"
+            p={"30px"}
           >
-            <Image
-              src="https://cdn-icons-png.flaticon.com/512/2940/2940522.png"
-              w={"35px"}
-            />
-            <Text
-              fontWeight="400"
-              fontSize={{ base: "md", md: "xl", lg: "2xl" }}
-            >
-              <Text as={"span"}></Text> Item in your Bag
-            </Text>
-          </Box>
-
-          <Box name="cart_card">
-            {products.map((el) => {
-              return (
-                <div key={el.id}>
-
-                  <img src={el.image1} alt="image1" />
-                  <h3>{el.title}</h3>
-                </div>
-              )
-            })}
-
-          </Box>
-        </Box>
-        <Box
-          w={{ base: "100%", sm: "80%", md: "35%" }}
-          left={{ sm: 0, md: 0 }}
-          display={"flex"}
-          flexDir="column"
-          bg="#F5F7F7"
-          rowGap={"25px"}
-        >
-          <Box p={"20px"} bg="white">
             <Box
               display="flex"
               flexDir={"row"}
               alignItems="center"
               columnGap={4}
-              pb="10px"
-              borderBottom={"1px solid black"}
+              pb="30px"
+              w="100%"
             >
               <Image
-                src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
+                src="https://cdn-icons-png.flaticon.com/512/2940/2940522.png"
                 w={"35px"}
               />
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Delivery Address
-              </Text>
-            </Box>
-            <Box
-              display="flex"
-              flexDir={"row"}
-              alignItems="center"
-              justifyContent={"space-between"}
-              columnGap={4}
-              p="10px"
-              border={"1px solid black"}
-              mt="15%"
-            >
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Delivery to{" "}
-                <Text as={"span"} fontWeight="600">
-                  431703
-                </Text>
-              </Text>
-              <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                Change
-              </Text>
-            </Box>
-          </Box>
-          <Box p={"20px"} bg="white">
-            <Box
-              display="flex"
-              flexDir={"row"}
-              alignItems="center"
-              columnGap={4}
-              pb="10px"
-            >
-              <Image
-                src="https://cdn-icons-png.flaticon.com/512/7324/7324863.png"
-                w={"35px"}
-              />
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Payment Summary
-              </Text>
-            </Box>
-            <Box
-              display="flex"
-              flexDir={"row"}
-              alignItems="center"
-              justifyContent={"space-between"}
-              columnGap={4}
-              p="10px"
-            >
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Bag Total
-              </Text>
-              <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                ₹
-              </Text>
-            </Box>
-            <Box
-              display="flex"
-              flexDir={"row"}
-              alignItems="center"
-              justifyContent={"space-between"}
-              columnGap={4}
-              p="10px"
-            >
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Shopping Charges
-              </Text>
-              <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                Free
-              </Text>
-            </Box>
-            <Box
-              display="flex"
-              flexDir={"row"}
-              alignItems="center"
-              justifyContent={"space-between"}
-              columnGap={4}
-              p="10px"
-            >
-              <Text fontWeight="400" fontSize={"1rem"}>
-                Amount Payable
-              </Text>
-              <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
-                ₹
-              </Text>
-            </Box>
-            <Box>
-              <Button
-                width={"100%"}
-                bg={"#F25B22"}
-                color="white"
-                fontWeight={"bold"}
-                fontSize={"1rem"}
-                onClick={() => onOpen()}
+              <Text
+                fontWeight="400"
+                fontSize={{ base: "md", md: "xl", lg: "2xl" }}
               >
-                CHECKOUT
-              </Button>
+                <Text as={"span"}></Text> Item in your Bag
+              </Text>
+            </Box>
 
-              <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                  <ModalHeader>ADD NEW ADDRESS</ModalHeader>
-                  <ModalCloseButton />
-                  <ModalBody>
-                    <Box style={{ display: "flex", gap: "30px" }}>
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Full Name*"
-
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Mobile Number*"
-
+            <Grid gap={5}>
+              {data?.map((cart) => (
+                <GridItem
+                  key={cart.id}
+                  m={"auto"}
+                  display="flex"
+                  boxSizing="border-box"
+                >
+                  <HStack gap={4}>
+                    <Box>
+                      <Image
+                        src={cart.image1}
+                        alt="cart image"f
+                        h={150}
+                        w={150}
                       />
                     </Box>
-                    <Box style={{ display: "flex", gap: "30px" }}>
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Pincode*"
-
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="City*"
-
-                      />
+                    <Box>
+                      <Text fontSize={20}>{cart.title}</Text>
+                      <Text fontSize={18}>{cart.Category}</Text>
+                      <Text fontSize={18}>Rating : {cart.rating}</Text>
+                      <Text fontSize={15}>
+                        Discounted Price :{`${cart.price}`}
+                      </Text>
+                      <Text fontSize={15}>Sold by: Smart Shop </Text>
+                      {/* Buttons Quantity */}
                     </Box>
-                    <Box style={{ display: "flex", gap: "30px" }}>
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="State*"
+                  </HStack>
+                  <HStack gap={10}>
+                    <Box ml={10}>
+                      <Button
+                        bg={"#F25B22"}
+                        isDisabled={cart.quantity === 1}
+                        onClick={() =>
+                          handleQuantity(cart.id, cart.Quantity, -1)
+                        }
+                      >
+                        -
+                      </Button>
 
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Country*"
+                      <Button isDisabled>{cart.quantity+1}</Button>
 
-                      />
+                      <Button
+                        bg={"#F25B22"}
+                        onClick={() =>
+                          handleQuantity(cart.id, cart.quantity, 1)
+                        }
+                      >
+                        +
+                      </Button>
                     </Box>
-                    <Input
-                      my="2"
-                      type="text"
-                      required
-                      placeholder="Flat No/Building , Street Name*"
+                    <Box>
+                      <Text fontSize={16}>{`₹ ${
+                       cart.price
+                      }`}</Text>
+                    </Box>
+                    <Box>
+                      <Button
+                        
+                        textColor={"whi"}
+                        onClick={() => handleDelete(cart.id)}
+                      >
+                        <MdDelete/>
+                      </Button>
+                    </Box>
+                  </HStack>
+                </GridItem>
+              ))}
+            </Grid>
+          </Box>
+          <Box
+            w={{ base: "100%", sm: "80%", md: "35%" }}
+            left={{ sm: 0, md: 0 }}
+            display={"flex"}
+            flexDir="column"
+            bg="#F5F7F7"
+            rowGap={"25px"}
+          >
+            <Box p={"20px"} bg="white">
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                columnGap={4}
+                pb="10px"
+                borderBottom={"1px solid black"}
+              >
+                <Image
+                  src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
+                  w={"35px"}
+                />
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Delivery Address
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                justifyContent={"space-between"}
+                columnGap={4}
+                p="10px"
+                border={"1px solid black"}
+                mt="15%"
+              >
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Delivery to{" "}
+                  <Text as={"span"} fontWeight="600">
+                    800020
+                  </Text>
+                </Text>
+                <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
+                  Change
+                </Text>
+              </Box>
+            </Box>
+            <Box p={"20px"} bg="white">
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                columnGap={4}
+                pb="10px"
+              >
+                <Image
+                  src="https://cdn-icons-png.flaticon.com/512/7324/7324863.png"
+                  w={"35px"}
+                />
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Payment Summary
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                justifyContent={"space-between"}
+                columnGap={4}
+                p="10px"
+              >
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Bag Total
+                </Text>
+                <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
+                  ₹{total}
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                justifyContent={"space-between"}
+                columnGap={4}
+                p="10px"
+              >
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Shopping Charges
+                </Text>
+                <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
+                  Free
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir={"row"}
+                alignItems="center"
+                justifyContent={"space-between"}
+                columnGap={4}
+                p="10px"
+              >
+                <Text fontWeight="400" fontSize={"1rem"}>
+                  Amount Payable : {total}
+                </Text>
+                <Text color={"#F25B22"} fontWeight="400" fontSize={"1rem"}>
+                  ₹ {total}
+                </Text>
+              </Box>
+              <Box>
+                <Button
+                  width={"100%"}
+                  bg={"#F25B22"}
+                  color="white"
+                  fontWeight={"bold"}
+                  fontSize={"1rem"}
+                  onClick={() => onOpen()}
+                >
+                  CHECKOUT
+                </Button>
 
-                    />
-                    <Input
-                      my="2"
-                      type="text"
-                      required
-                      placeholder="Area/Locality*"
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>ADD NEW ADDRESS</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                      <Box style={{ display: "flex", gap: "30px" }}>
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="Full Name*"
+                        />
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="Mobile Number*"
+                        />
+                      </Box>
+                      <Box style={{ display: "flex", gap: "30px" }}>
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="Pincode*"
+                        />
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="City*"
+                        />
+                      </Box>
+                      <Box style={{ display: "flex", gap: "30px" }}>
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="State*"
+                        />
+                        <Input
+                          my="2"
+                          type="text"
+                          required
+                          placeholder="Country*"
+                        />
+                      </Box>
+                      <Input
+                        my="2"
+                        type="text"
+                        required
+                        placeholder="Flat No/Building , Street Name*"
+                      />
+                      <Input
+                        my="2"
+                        type="text"
+                        required
+                        placeholder="Area/Locality*"
+                      />
+                      <Input
+                        my="2"
+                        type="text"
+                        required
+                        placeholder="Landmark"
+                      />
+                      <Text>
+                        PS. Your information is safe with us, No spam.
+                      </Text>
+                    </ModalBody>
 
-                    />
-                    <Input
-                      my="2"
-                      type="text"
-                      required
-                      placeholder="Landmark"
-
-                    />
-                    <Text>PS. Your information is safe with us, No spam.</Text>
-                  </ModalBody>
-
-                  <ModalFooter>
-                    <Button
-                      className="modal-add-address-btn"
-                      bg={"#F25B22"}
-                      color="white"
-                      fontWeight={"bold"}
-                      fontSize={"1rem"}
-                    >
-                      <Link to="/payment">PAY NOW</Link>
-                    </Button>
-                  </ModalFooter>
-                </ModalContent>
-              </Modal>
+                    <ModalFooter>
+                      <Button
+                        className="modal-add-address-btn"
+                        bg={"#F25B22"}
+                        color="white"
+                        fontWeight={"bold"}
+                        fontSize={"1rem"}
+                      >
+                        <Link to="/payment">PAY NOW</Link>
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-      {/* {products.map((el)=>{
+        {/* {products.map((el)=>{
       return (
           <div key={el.id}>
             
       <img src={el.image1} alt="image1" />
             </div>
     )})} */}
-
-
-    </div>
-  )
-}
+      </div>
+      <Footer2 />
+    </>
+  );
+};
 // "image1": "https://assetscdn1.paytm.com/images/catalog/product/J/JE/JEWVIGHNAHARTA-VIGH1196979EA0CDD9/1562708763888_0..jpg?imwidth=282&impolicy=hq",
 // "Brand": "Vighnaharta",
 // "title": "Silver Brass Ring",
@@ -308,6 +423,4 @@ const Cart = () => {
 // "quantitiy": 1,
 // "id": 1
 
-export default Cart
-
-
+export default Cart;

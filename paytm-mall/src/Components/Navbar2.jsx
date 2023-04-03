@@ -11,10 +11,12 @@ import { BiSearch } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../Redux/Auth/actions";
 
-
-const Navbar = () => {
+const Navbar2 = () => {
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initQ = searchParams.toString("q");
+  const [q, setQ] = useState(initQ);
 
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   //const isAuth = localStorage.getItem("isAuth")|| false
@@ -30,12 +32,10 @@ const Navbar = () => {
 
   // set Debouncing in input tag
 
-
-
-  const url = `https://paytmmallserver.onrender.com/product`
-  const ref = useRef(null)
-  const [debounceDiv, setDebounceDiv] = useState(false)
-  const [data, setData] = useState([])
+  const url = `https://paytmmallserver.onrender.com/product`;
+  const ref = useRef(null);
+  const [debounceDiv, setDebounceDiv] = useState(false);
+  const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState("");
   useEffect(() => {
     fetchData(searchData);
@@ -44,28 +44,16 @@ const Navbar = () => {
     fetch(`${url}?_limit=5&q=${searchValue}`)
       .then((res) => res.json())
       .then((res) => {
-        setData(res)
+        setData(res);
         //   console.log( " debounce data ",res);
-      })
-  }
-
-
-
-  const debounce = (fn, timeout) => {
-    let timerid;
-    return () => {
-      clearTimeout(timerid);
-      timerid = setTimeout(() => {
-        fn();
-      }, timeout);
-    };
+      });
   };
-  const handleinput = debounce(() => {
-    const val = ref.current.value;
 
-    setDebounceDiv(true);
-    setSearchData(val);
-  }, 1000);
+  useEffect(() => {
+    let params = {};
+    q && (params.q = q);
+    setSearchParams(params);
+  }, [q]);
 
   window.addEventListener("click", (e) => {
     if (e.target.id !== "13") {
@@ -76,25 +64,19 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(setLogout);
   };
-
-  const [searchParams, setSearchParams] = useSearchParams();
   //const [category, setCategory] = useState("");
-  const initialCategory = searchParams.get("category")
-  const [category, setCategory] = useState(initialCategory || "")
+  const initialCategory = searchParams.get("category");
+  const [category, setCategory] = useState(initialCategory || "");
 
   const handleClick = (value) => {
-    console.log(category)
-    setCategory(value)
-    console.log(category)
-  }
+    console.log(category);
+    setCategory(value);
+    console.log(category);
+  };
 
   return (
     <Box>
-      <Box className="paytm_mall_logo">
-        <Link to="/">
-          <Image p="6px"  src={image} alt="unique_logo" />
-        </Link>
-      </Box>
+      <Box className="paytm_mall_logo"></Box>
       <Box
         className="navbar"
         w={{ md: "100%", lg: "100%" }}
@@ -108,6 +90,15 @@ const Navbar = () => {
           className="navLeft"
           gap={{ base: "4px", sm: "10px", md: "15px", lg: "20px" }}
         >
+          <Link to="/">
+            <Image
+              p="6px"
+              src={image}
+              alt="unique_logo"
+              height={"24"}
+              width={"25"}
+            />
+          </Link>
           <Box className="active" w={{ base: "40%", md: "18%", lg: "20%" }}>
             <Box
               className="nav_category"
@@ -119,6 +110,7 @@ const Navbar = () => {
                 color="red"
                 w={{ base: "10px", md: "15px", lg: "18px" }}
               />
+
               <Box
                 marginTop={{ base: "-6px", sm: "0px", md: "0px", lg: "0px" }}
               >
@@ -162,27 +154,57 @@ const Navbar = () => {
                       ></Box>
                       <VStack ml="10px" align="left">
                         <Link to={`/jewellery`}>
-                          <Text onClick={() => { setCategory("jewellery") }}>Jewellery</Text>
+                          <Text
+                            onClick={() => {
+                              setCategory("jewellery");
+                            }}
+                          >
+                            Jewellery
+                          </Text>
                         </Link>
                         <Link to={`/glasses`}>
-                          <Text onClick={() => { setCategory("glasses") }}>Glasses</Text>
+                          <Text
+                            onClick={() => {
+                              setCategory("glasses");
+                            }}
+                          >
+                            Glasses
+                          </Text>
                         </Link>
                         <Link to={`/decoration`}>
-                          <Text onClick={() => { setCategory("decoration") }}>Decoration</Text>
+                          <Text
+                            onClick={() => {
+                              setCategory("decoration");
+                            }}
+                          >
+                            Decoration
+                          </Text>
                         </Link>
                         <Link to={`/electronic`}>
-                          <Text onClick={() => { setCategory("electronic") }}>Furniture & Electronics</Text>
+                          <Text
+                            onClick={() => {
+                              setCategory("electronic");
+                            }}
+                          >
+                            Furniture & Electronics
+                          </Text>
                         </Link>
                         <Link to="/autoMobiles">
-                          <Text onClick={() => { setCategory("autoMobiles") }}>Automobiles</Text>
+                          <Text
+                            onClick={() => {
+                              setCategory("autoMobiles");
+                            }}
+                          >
+                            Automobiles
+                          </Text>
                         </Link>
 
                         <Link to="/beauty&health">
-                          <Text >Beauty & Health</Text>
+                          <Text>Beauty & Health</Text>
                         </Link>
 
                         <Link to="/travel&holidays">
-                          <Text >Travel & Holidays</Text>
+                          <Text>Travel & Holidays</Text>
                         </Link>
                       </VStack>
                     </Box>
@@ -200,44 +222,16 @@ const Navbar = () => {
           >
             {/* use debouncing   */}
             <Box w="100%">
-              <InputGroup>
-                <input
-                  w={{ base: "40%", md: "40%", lg: "100%" }}
-                  className="searchBar"
-                  type="text"
-                  placeholder="Search for a Product, Brand or Category"
-                  h="38px"
-                  fontSize="14px"
-                  ref={ref}
-                  onInput={handleinput}
-                  id="13"
-                />
-              </InputGroup>
-              <Box
-                display={debounceDiv ? "" : "none"}
-                className="debouncing-item"
-              >
-                {data.map((item, index) => (
-                  <Box key={index} w="100%">
-                    <NavLink to={`/products/${item.id}`}>
-                      <Flex
-                        bg="white"
-                        gap="2"
-                        p="10px 25px"
-                        m="10px 0"
-                        align="center"
-                        cursor="pointer"
-                        _hover={{ bg: "#F5F8FF" }}
-                      >
-                        <Box>
-                          <Image w="20px" src={item.img} />
-                        </Box>
-                        <Box color={"#212121"}>{item.description}</Box>
-                      </Flex>
-                    </NavLink>
-                  </Box>
-                ))}
-              </Box>
+              <input
+                w={{ base: "40%", md: "40%", lg: "100%" }}
+                className="searchBar"
+                type="text"
+                placeholder="Search for a Product, Brand or Category"
+                h="38px"
+                fontSize="14px"
+                onChange={(e) => setQ(e.target.value)}
+                id="13"
+              />
             </Box>
             <Box m="10px">
               {" "}
@@ -307,4 +301,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

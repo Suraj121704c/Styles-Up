@@ -100,4 +100,4 @@ const ManageProducts = () => {
   )
 }
 
-export default ManageProducts;
+export default ManageProducts;

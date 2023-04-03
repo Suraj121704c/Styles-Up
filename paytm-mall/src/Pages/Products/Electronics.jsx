@@ -3,7 +3,9 @@ import css from "./Electronics.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getELectronics } from "../../Redux/ProductReducer/action";
-import { Box, Button, Center, Grid, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Center, CircularProgress, Grid, Image, Text } from "@chakra-ui/react";
+import Navbar2 from "../../Components/Navbar2";
+import { Footer2 } from "../../Components/Fotter2";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,8 @@ const Products = () => {
 
   const initialOrder = searchParams.get("order");
   const [order, setOrder] = useState(initialOrder || "");
+
+  const { isLoading ,isError } = useSelector((store)=> store.electronicsReducer ) 
 
   const handleChange = (e) => {
     let newCategory = [...Category];
@@ -68,6 +72,7 @@ const Products = () => {
       _page: searchParams.get("page"),
       _sort: searchParams.get("order") && "price",
       _order: searchParams.get("order"),
+      q : searchParams.get("q")
     },
   };
 
@@ -75,8 +80,11 @@ const Products = () => {
     dispatch(getELectronics(obj));
   }, [location.search]);
 
+ 
+
   return (
     <>
+      <Navbar2 />
       <Box>
         <Box className={css.product_main_div}>
           <Box id={css.heading}>
@@ -284,6 +292,7 @@ const Products = () => {
           <Button onClick={() => setPage(page + 1)}>Next</Button>
         </Center>
       </Box>
+      <Footer2 />
     </>
   );
 };
