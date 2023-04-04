@@ -1,5 +1,5 @@
 # Paytm Mall
-Paytm Mall - India's Leading Online Shopping Experience, Brought to You by Paytm. Online shopping with Paytm Mall is quick, convenient and trouble-free. You can shop for the desired product right from the comfort of your home and get them delivered straight to your doorstep.
+Styles Up - India's Leading Online Shopping Experience, Brought to You by Paytm. Online shopping with Styles Up is quick, convenient and trouble-free. You can shop for the desired product right from the comfort of your home and get them delivered straight to your doorstep.
 
 Home Page
 ![Screenshot (177)](https://user-images.githubusercontent.com/112754760/229575461-84775f95-e39e-4f1c-89e1-e9cbfab22a77.png)
