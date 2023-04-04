@@ -32,4 +32,19 @@ Payment Page
 
 ![Screenshot (182)](https://user-images.githubusercontent.com/112754760/229580624-00f1ece0-6940-4f0c-be38-4f2971b39231.png)
 
+Admin page
 
+Dashboard
+
+
+![Screenshot (183)](https://user-images.githubusercontent.com/112754760/229822996-e1170f49-84d1-4668-9a87-fe66ad3cbe30.png)
+
+Manage Products
+
+
+
+![Screenshot (185)](https://user-images.githubusercontent.com/112754760/229823184-cb89c49e-0775-4167-8cb2-acfc81d1612c.png)
+
+Manage Orders
+
+![Screenshot (187)](https://user-images.githubusercontent.com/112754760/229823756-3d19d42e-e1b6-46c6-977a-b50f1050b7a3.png)
