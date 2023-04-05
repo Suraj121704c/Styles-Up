@@ -1,4 +1,4 @@
-#StylesUp
+# Styles Up
 Styles Up - India's Leading Online Shopping Experience, Brought to You by Paytm. Online shopping with Styles Up is quick, convenient and trouble-free. You can shop for the desired product right from the comfort of your home and get them delivered straight to your doorstep.
 
 Home Page
