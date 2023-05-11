@@ -122,7 +122,7 @@ const Jewellery = () => {
           <Flex m="0" px="2%">
             <Box w="18%" m={0}>
               <VStack
-                fontSize={{ base: "10px", md: "12px", lg: "20px" }}
+                overflow={"none"}
                 alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Category
@@ -131,13 +131,13 @@ const Jewellery = () => {
                   colorScheme="green"
                   value={"jewellary"}
                   onChange={handleCategory}>
-                  jewellary
+                  jewell
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
                   value={"lahenga"}
                   onChange={handleCategory}>
-                  lahenga
+                   lahnga wears
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
@@ -153,7 +153,6 @@ const Jewellery = () => {
                 </Checkbox>
               </VStack>
               <VStack
-                fontSize={{ base: "10px", md: "12px", lg: "20px" }}
                 alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Brands
@@ -162,8 +161,8 @@ const Jewellery = () => {
                   colorScheme="green"
                   value={"Vighnaharta"}
                   onChange={handleBrand}
-                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  Vighnaharta
+                  fontSize={[3,7,10]}>
+                  Vighn aharta
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
@@ -177,14 +176,14 @@ const Jewellery = () => {
                   value={"Efulgenz"}
                   onChange={handleBrand}
                   fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  Efulgenz
+                  Eful genz
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
                   value={"Rajkanya"}
                   onChange={handleBrand}
                   fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  Rajkanya
+                  Raj kanya
                 </Checkbox>
 
                 <Checkbox
@@ -192,7 +191,7 @@ const Jewellery = () => {
                   value={"SILVER SHINE"}
                   onChange={handleBrand}
                   fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  SILVER SHINE
+                  silver shine
                 </Checkbox>
 
                 <Checkbox
@@ -200,7 +199,7 @@ const Jewellery = () => {
                   value={"HAPPY STONING"}
                   onChange={handleBrand}
                   fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  HAPPY STONING
+                  happy stoin
                 </Checkbox>
 
                 <Checkbox
@@ -208,7 +207,7 @@ const Jewellery = () => {
                   value={"SAINOOR"}
                   onChange={handleBrand}
                   fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
-                  SAINOOR
+                  sainoor
                 </Checkbox>
               </VStack>
               <VStack
@@ -238,6 +237,7 @@ const Jewellery = () => {
               borderLeft="1px solid"
               borderColor="gray.300"
               textAlign={"center"}
+
               m={0}
               sx={{
                 "::-webkit-scrollbar": {
@@ -248,8 +248,7 @@ const Jewellery = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 p="5px"
-                bg="#e2e8f0"
-                border="1px"
+                bg="none"
                 borderColor="none">
                 <Text>STYLISH FASHION</Text>
                 <Flex>
