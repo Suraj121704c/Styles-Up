@@ -11,7 +11,7 @@ import { BiSearch } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../Redux/Auth/actions";
 
-const Navbar = () => {
+const Navbar3 = () => {
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
 
@@ -85,11 +85,6 @@ const Navbar = () => {
 
   return (
     <Box>
-      <Box className="paytm_mall_logo">
-        <Link to="/">
-          <Image p="6px" src={image} alt="unique_logo" />
-        </Link>
-      </Box>
       <Box
         className="navbar"
         w={{ md: "100%", lg: "100%" }}
@@ -98,6 +93,12 @@ const Navbar = () => {
         top="-7px"
         backgroundColor="white"
         zIndex="1000">
+        <Box>
+          {" "}
+          <Link to="/">
+            <Image p="6px" src={image} alt="unique_logo" width={"100px"} />
+          </Link>
+        </Box>
         <Box
           className="navLeft"
           gap={{ base: "4px", sm: "10px", md: "15px", lg: "20px" }}>
@@ -315,4 +316,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar3;

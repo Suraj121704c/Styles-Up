@@ -27,6 +27,7 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getJewellery } from "../../Redux/ProductReducer/action";
 import { Footer2 } from "../../Components/Fotter2";
 import Navbar2 from "../../Components/Navbar2";
+import Navbar3 from "../../Components/Navbar3";
 
 const Jewellery = () => {
   const dispatch = useDispatch();
@@ -116,7 +117,7 @@ const Jewellery = () => {
 
   return (
     <>
-      <Navbar2 />
+    <Navbar2 />
       <div>
         <div>
           <Flex m="0" px="2%">
