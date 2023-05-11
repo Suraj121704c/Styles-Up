@@ -43,12 +43,12 @@ const AllRoutes = () => {
         </PrivateRoute>
 
       } />
-      <Route path="/electronic" element={<Products />} />
+      <Route path="/electronic" element={<Jewellery />} />
       <Route path="/jewellery" element={<Jewellery />} />
-      <Route path="/payment" element={<Payment />} />
-      <Route path="/glasses" element={<Glasses />} />
-      <Route path="/decoration" element={<Decoration />} />
-      <Route path="/autoMobiles" element={<AutoMobiles />} />
+      <Route path="/payment" element={<Jewellery />} />
+      <Route path="/glasses" element={<Jewellery />} />
+      <Route path="/decoration" element={<Jewellery />} />
+      <Route path="/autoMobiles" element={<Jewellery />} />
       <Route path="*" element={<PageNotFound />} />
       <Route path="/adminLogin" element={<AdminLogin />} />
     </Routes>
