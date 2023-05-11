@@ -20,6 +20,7 @@ import Payment from "../Pages/Payment";
 import { Login } from "../Pages/Login";
 import { PrivateRoute } from "./PrivateRoute";
 import AdminLogin from "../Pages/AdminLogin";
+import PaymentDetails from "../Pages/PamentDetails";
 
 const AllRoutes = () => {
   return (
@@ -45,6 +46,7 @@ const AllRoutes = () => {
       <Route path="/autoMobiles" element={<Jewellery />} />
       <Route path="*" element={<PageNotFound />} />
       <Route path="/adminLogin" element={<AdminLogin />} />
+      <Route path="/paymentDetails" element={<PaymentDetails />}></Route>
     </Routes>
   );
 };

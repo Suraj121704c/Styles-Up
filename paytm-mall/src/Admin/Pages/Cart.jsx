@@ -287,99 +287,17 @@ const Cart = () => {
                 </Text>
               </Box>
               <Box>
-                <Button
-                  width={"100%"}
-                  bg={"#F25B22"}
-                  color="white"
-                  fontWeight={"bold"}
-                  fontSize={"1rem"}
-                  onClick={() => onOpen()}>
-                  CHECKOUT
-                </Button>
-
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>ADD NEW ADDRESS</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Full Name*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Mobile Number*"
-                        />
-                      </Box>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Pincode*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="City*"
-                        />
-                      </Box>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="State*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Country*"
-                        />
-                      </Box>
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Flat No/Building , Street Name*"
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Area/Locality*"
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Landmark"
-                      />
-                      <Text>
-                        PS. Your information is safe with us, No spam.
-                      </Text>
-                    </ModalBody>
-
-                    <ModalFooter>
-                      <Button
-                        className="modal-add-address-btn"
-                        bg={"#F25B22"}
-                        color="white"
-                        fontWeight={"bold"}
-                        fontSize={"1rem"}>
-                        <Link to="/payment">PAY NOW</Link>
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
+                <Link to={"/paymentDetails"}>
+                  {" "}
+                  <Button
+                    width={"100%"}
+                    bg={"#F25B22"}
+                    color="white"
+                    fontWeight={"bold"}
+                    fontSize={"1rem"}>
+                    CHECKOUT
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Box>
