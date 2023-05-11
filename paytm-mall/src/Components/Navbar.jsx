@@ -261,7 +261,7 @@ const Navbar = () => {
           ml={{ base: "-15px" }}
           p={{ base: "0px" }}
           w={{ base: "50%", md: "40%", lg: "30%" }}>
-          <Link to={"/orders"}>
+          <Link to={"/"}>
             <Box className="order" w={{ base: "20%", md: "30%", lg: "33%" }}>
               <Image
                 src={list}
