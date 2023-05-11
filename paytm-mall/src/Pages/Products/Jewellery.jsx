@@ -121,9 +121,7 @@ const Jewellery = () => {
         <div>
           <Flex m="0" px="2%">
             <Box w="18%" m={0}>
-              <VStack
-                overflow={"none"}
-                alignItems="flex-start">
+              <VStack overflow={"none"} alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Category
                 </Text>
@@ -137,7 +135,7 @@ const Jewellery = () => {
                   colorScheme="green"
                   value={"lahenga"}
                   onChange={handleCategory}>
-                   lahnga wears
+                  lahnga wears
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
@@ -152,8 +150,7 @@ const Jewellery = () => {
                   kurti
                 </Checkbox>
               </VStack>
-              <VStack
-                alignItems="flex-start">
+              <VStack alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Brands
                 </Text>
@@ -161,7 +158,7 @@ const Jewellery = () => {
                   colorScheme="green"
                   value={"Vighnaharta"}
                   onChange={handleBrand}
-                  fontSize={[3,7,10]}>
+                  fontSize={[3, 7, 10]}>
                   Vighn aharta
                 </Checkbox>
                 <Checkbox
@@ -237,7 +234,6 @@ const Jewellery = () => {
               borderLeft="1px solid"
               borderColor="gray.300"
               textAlign={"center"}
-
               m={0}
               sx={{
                 "::-webkit-scrollbar": {
@@ -280,13 +276,16 @@ const Jewellery = () => {
                   lg: "repeat(3, 1fr)",
                 }}>
                 {jewellery.length === 0 ? (
-                  <Spinner
-                    thickness="4px"
-                    speed="0.65s"
-                    emptyColor="gray.200"
-                    color="blue.500"
-                    size="xl"
-                  />
+                  <Center>
+                    {" "}
+                    <Spinner
+                      thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      color="blue.500"
+                      size="xl"
+                    />
+                  </Center>
                 ) : (
                   jewellery.map((el) => (
                     <Link to={`/products/${el.id}`} key={el.id}>

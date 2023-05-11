@@ -27,6 +27,7 @@ export const SingleUserPage = () => {
   useEffect(() => {
     dispatch(getJewellery)
     const data = Jewellary.find((el) => el.id === +id)
+    console.log(data)
     setData(data)
   }, [])
 
@@ -155,7 +156,7 @@ export const SingleUserPage = () => {
 
 
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </>
   )
 }
