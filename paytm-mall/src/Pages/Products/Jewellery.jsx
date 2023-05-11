@@ -121,7 +121,9 @@ const Jewellery = () => {
         <div>
           <Flex m="0" px="2%">
             <Box w="18%" m={0}>
-              <VStack mb="20px" alignItems="flex-start">
+              <VStack
+                fontSize={{ base: "10px", md: "12px", lg: "20px" }}
+                alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Category
                 </Text>
@@ -150,57 +152,68 @@ const Jewellery = () => {
                   kurti
                 </Checkbox>
               </VStack>
-              <VStack mb="20px" alignItems="flex-start">
+              <VStack
+                fontSize={{ base: "10px", md: "12px", lg: "20px" }}
+                alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Brands
                 </Text>
                 <Checkbox
                   colorScheme="green"
                   value={"Vighnaharta"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   Vighnaharta
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
                   value={"Mahi"}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}
                   onChange={handleBrand}>
                   Mahi
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
                   value={"Efulgenz"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   Efulgenz
                 </Checkbox>
                 <Checkbox
                   colorScheme="green"
                   value={"Rajkanya"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   Rajkanya
                 </Checkbox>
 
                 <Checkbox
                   colorScheme="green"
                   value={"SILVER SHINE"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   SILVER SHINE
                 </Checkbox>
 
                 <Checkbox
                   colorScheme="green"
                   value={"HAPPY STONING"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   HAPPY STONING
                 </Checkbox>
 
                 <Checkbox
                   colorScheme="green"
                   value={"SAINOOR"}
-                  onChange={handleBrand}>
+                  onChange={handleBrand}
+                  fontSize={{ base: "10px", md: "12px", lg: "20px" }}>
                   SAINOOR
                 </Checkbox>
               </VStack>
-              <VStack mb="20px" alignItems="flex-start">
+              <VStack
+                fontSize={{ base: "10px", md: "12px", lg: "20px" }}
+                alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Ratings
                 </Text>
@@ -237,12 +250,12 @@ const Jewellery = () => {
                 p="5px"
                 bg="#e2e8f0"
                 border="1px"
-                borderColor="gray.400">
+                borderColor="none">
                 <Text>STYLISH FASHION</Text>
                 <Flex>
                   <Flex alignItems="center">
                     {/* <TbArrowsUpDown color="green" fontWeight="bold" /> */}
-                    <Text fontWeight="bold" color="green">
+                    <Text fontWeight="bold" color="#E9967A">
                       SortBy
                     </Text>
                   </Flex>
@@ -260,7 +273,7 @@ const Jewellery = () => {
                 </Flex>
               </Flex>
               <Grid
-                gap={5}
+                gap={2}
                 templateColumns={{
                   base: "repeat(1, 1fr)",
                   sm: "repeat(2, 1fr)",
@@ -307,52 +320,65 @@ const Jewellery = () => {
                         </Text>
                         <Text as={"s"}>₹{el.MRP}</Text>
                       </Box> */}
-                      <Card maxW="sm">
+                      <Card
+                        maxW="sm"
+                        boxShadow="#E9967A 0px 5px 15px"
+                        marginLeft={"5"}
+                        marginTop={"5"}>
                         <CardBody>
                           <Image
                             src={el.image1}
                             alt="Green double couch with wooden legs"
-                            borderRadius="lg"
+                            borderRadius="10%"
                             height={"300px"}
+                            boxShadow="rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
                           />
                           <Stack mt="6" spacing="3">
                             <Heading size="md">{el.Brand}</Heading>
-                            <Text>
-                              {el.title}
-                            </Text>
+                            <Text>{el.title.slice(0, 30)}</Text>
                             <Text color="blue.600" fontSize="2xl">
                               ₹{el.price}
                             </Text>
                           </Stack>
                         </CardBody>
-                        <Divider />
-                        <CardFooter>
-                          <ButtonGroup spacing="2">
-                            <Button variant="ghost" colorScheme="blue">
-                              Add to cart
-                            </Button>
-                          </ButtonGroup>
-                        </CardFooter>
                       </Card>
                     </Link>
                   ))
                 )}
               </Grid>
-              <Center marginTop={"10px"}>
+              <Center marginTop={"20px"} marginBottom={"20px"}>
                 <Button
                   onClick={() => setPage(page - 1)}
-                  isDisabled={page === 1}>
+                  isDisabled={page === 1}
+                  boxShadow="rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
+                  variant="solid"
+                  colorScheme="#E9967A"
+                  color={"black"}>
                   Previous
                 </Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button>{page}</Button>&nbsp;&nbsp;&nbsp;
-                <Button onClick={() => setPage(page + 1)}>Next</Button>
+                <Button
+                  boxShadow="rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
+                  variant="solid"
+                  colorScheme="#E9967A"
+                  color={"black"}>
+                  {page}
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  onClick={() => setPage(page + 1)}
+                  boxShadow="rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
+                  variant="solid"
+                  colorScheme="#E9967A"
+                  color={"black"}>
+                  Next
+                </Button>
               </Center>
             </Box>
           </Flex>
         </div>
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </>
   );
 };
