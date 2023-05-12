@@ -6,7 +6,6 @@ export const Admin = () => {
 
     <div  >
           <AdminMenu/> 
-       {/* <Admin_Sidebar/> */}
     </div>
   );
 };
