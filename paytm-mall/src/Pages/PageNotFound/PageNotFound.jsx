@@ -2,11 +2,12 @@ import React from "react";
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
+import Navbar2 from "../../Components/Navbar2";
 
 const PageNotFound = () => {
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Box textAlign="center" py={10} px={6}>
         <Heading
           display="inline-block"
