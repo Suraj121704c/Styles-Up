@@ -2,12 +2,13 @@ import React from "react";
 import { Box, Button, Flex, Image, Input } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import Navbar2 from "../Components/Navbar2";
 
 const PaymentDetails = () => {
   let Navigate = useNavigate();
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Box
         w="700px"
         ml="180px"

@@ -162,7 +162,7 @@ export const Signup = () => {
           </Box>
         </Stack>
       </Flex>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </>
   );
 };

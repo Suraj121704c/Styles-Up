@@ -94,7 +94,7 @@ const Navbar = () => {
         className="navbar"
         w={{ md: "100%", lg: "100%" }}
         m="auto"
-        position={isSticky ? "fixed" : "static"}
+        position={"static"}
         top="-7px"
         backgroundColor="white"
         zIndex="1000">
