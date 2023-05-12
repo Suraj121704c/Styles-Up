@@ -93,8 +93,8 @@ const Navbar2 = () => {
               p={["0px", "6px"]}
               src={image}
               alt="unique_logo"
-              height={["0", "0", "24"]}
-              width={["0", "0", "25"]}
+              height={["0", "0px", "24"]}
+              width={["0", "0px", "25"]}
             />
           </Link>
           <Box className="active" w={{ base: "40%", md: "18%", lg: "20%" }}>
@@ -131,9 +131,11 @@ const Navbar2 = () => {
                   className="localWarehouse">
                   <Flex>
                     <Box>
-                      <Text fontSize="sm" color="red">
-                        GIFT CARDS
-                      </Text>
+                      <Link to={"/"}>
+                        <Text fontSize="sm" color="red">
+                          Back To Home
+                        </Text>
+                      </Link>
                     </Box>
 
                     <Box align="left" display="flex">
@@ -257,7 +259,9 @@ const Navbar2 = () => {
                 w={{ base: "0px", md: "0px", lg: "25px" }}
                 h={["10px"]}
               />
-              <Text fontSize={{ base: "15px", md: "15px", lg: "md" }}>Cart</Text>
+              <Text as="b" fontSize={{ base: "15px", md: "15px", lg: "md" }}>
+                Cart
+              </Text>
             </Box>
           </Link>
           {isAuth ? (
@@ -268,6 +272,7 @@ const Navbar2 = () => {
                 alt="logout icon"
               />
               <Text
+                as="b"
                 onClick={handleLogout}
                 fontSize={{ base: "15px", sm: "md", lg: "md" }}>
                 Logout
