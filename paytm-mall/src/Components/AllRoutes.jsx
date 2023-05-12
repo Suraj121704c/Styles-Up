@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Admin } from "../Pages/Admin";
-
+ 
 import Products from "../Pages/Products/Electronics";
 import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
@@ -20,7 +20,7 @@ import Payment from "../Pages/Payment";
 import { Login } from "../Pages/Login";
 import { PrivateRoute } from "./PrivateRoute";
 import AdminLogin from "../Pages/AdminLogin";
-import PaymentDetails from "../Pages/PamentDetails";
+
 
 const AllRoutes = () => {
   return (
