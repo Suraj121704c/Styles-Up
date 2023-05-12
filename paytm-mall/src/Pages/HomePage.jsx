@@ -108,8 +108,8 @@ export const HomePage = () => {
         <h1>Jewellery Brands</h1>
         <Grid
           className="shops"
-          templateColumns="repeat(4, 1fr)"
-          templateRows="600px"
+          templateColumns={"repeat(4, 1fr)"}
+          templateRows={["180px","230px","600px"]}
           gap={12}
         >
           <GridItem w="100%" h="10">

@@ -113,7 +113,9 @@ const Navbar = () => {
               />
               <Box
                 marginTop={{ base: "-6px", sm: "0px", md: "0px", lg: "0px" }}>
-                <Text as="b" fontSize={{ base: "6px", md: "12px", lg: "14px" }}>
+                <Text
+                  as="b"
+                  fontSize={{ base: "10px", md: "12px", lg: "14px" }}>
                   Shop By Category
                 </Text>
               </Box>
@@ -266,9 +268,11 @@ const Navbar = () => {
               <Image
                 src={list}
                 alt="order_list_logo"
-                w={{ base: "10px", md: "20px", lg: "25px" }}
+                w={{ base: "0px", md: "0px", lg: "25px" }}
               />
-              <Text fontSize={{ base: "6px", sm: "md", lg: "md" }}>Orders</Text>
+              <Text fontSize={{ base: "0px", sm: "0px", lg: "25px" }}>
+                Orders
+              </Text>
             </Box>
           </Link>
 
@@ -277,9 +281,11 @@ const Navbar = () => {
               <Image
                 src={cartbag}
                 alt="cart_logo"
-                w={{ base: "10px", md: "20px", lg: "25px" }}
+                w={{ base: "0px", md: "0px", lg: "25px" }}
               />
-              <Text fontSize={{ base: "6px", md: "md", lg: "md" }}>Cart</Text>
+              <Text as="b" fontSize={{ base: "15px", md: "15px", lg: "md" }}>
+                Cart
+              </Text>
             </Box>
           </Link>
           {isAuth ? (
@@ -290,8 +296,9 @@ const Navbar = () => {
                 alt="logout icon"
               />
               <Text
+                as="b"
                 onClick={handleLogout}
-                fontSize={{ base: "6px", sm: "md", lg: "md" }}>
+                fontSize={{ base: "15px", sm: "md", lg: "md" }}>
                 Logout
               </Text>
             </Box>
@@ -303,7 +310,7 @@ const Navbar = () => {
                   src="https://lh3.googleusercontent.com/cKM952bxPmD-jF370bX__2kVdNWHevwFKTFcYyIFL1j64IyV6PCO44udzF-Zokf4FFl5tjY9n9kUZda3_KzHtoLv=w128-h128-e365-rj-sc0x00ffffff"
                   alt=""
                 />
-                <Text fontSize={{ base: "6px", sm: "md", lg: "md" }}>
+                <Text as="b" fontSize={{ base: "8px", sm: "md", lg: "md" }}>
                   Login/SignUp
                 </Text>
               </Box>
