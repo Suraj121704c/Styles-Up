@@ -179,7 +179,7 @@ export const Login = () => {
           </Box>
         </Stack>
       </Flex>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </Box>
   );
 };

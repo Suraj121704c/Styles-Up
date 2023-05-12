@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Styles Up
+Styles Up - India's Leading Online Shopping Experience, Brought to You by Paytm. Online shopping with Styles Up is quick, convenient and trouble-free. You can shop for the desired product right from the comfort of your home and get them delivered straight to your doorstep.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Home Page
+![Screenshot (177)](https://user-images.githubusercontent.com/112754760/229575461-84775f95-e39e-4f1c-89e1-e9cbfab22a77.png)
 
-## Available Scripts
+Product Page
 
-In the project directory, you can run:
+![Screenshot (173)](https://user-images.githubusercontent.com/112754760/229573670-018bf721-777b-4c5c-8843-2c0ab26c4016.png)
 
-### `npm start`
+Login Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Screenshot (174)](https://user-images.githubusercontent.com/112754760/229574914-7fc1879f-4cec-47fe-badd-916ce8179ba0.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Sign Up Page
 
-### `npm test`
+![Screenshot (175)](https://user-images.githubusercontent.com/112754760/229575093-5182e55b-c9f5-4290-9f03-0acc16fd36f8.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Single User Page
 
-### `npm run build`
+![Screenshot (178)](https://user-images.githubusercontent.com/112754760/229576053-262c1f9e-945e-43f4-a947-cb969d420ca4.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Cart Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screenshot (179)](https://user-images.githubusercontent.com/112754760/229576819-53544e49-810d-4661-8447-8ba10131d2ba.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Address 
 
-### `npm run eject`
+![Screenshot (180)](https://user-images.githubusercontent.com/112754760/229576818-c57bf891-67a1-4ea1-b74c-e77c85684c33.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Payment Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Screenshot (182)](https://user-images.githubusercontent.com/112754760/229580624-00f1ece0-6940-4f0c-be38-4f2971b39231.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Admin page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Dashboard
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Screenshot (183)](https://user-images.githubusercontent.com/112754760/229822996-e1170f49-84d1-4668-9a87-fe66ad3cbe30.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Manage Products
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+![Screenshot (185)](https://user-images.githubusercontent.com/112754760/229823184-cb89c49e-0775-4167-8cb2-acfc81d1612c.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Manage Orders
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot (187)](https://user-images.githubusercontent.com/112754760/229823756-3d19d42e-e1b6-46c6-977a-b50f1050b7a3.png)

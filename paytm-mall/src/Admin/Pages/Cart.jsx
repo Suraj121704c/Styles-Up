@@ -69,22 +69,24 @@ const Cart = () => {
   // Total
   useEffect(() => {
     let Total = 0;
-    data?.forEach((item) => (Total += Number(item.price) * Number(item.quantity+1)));
+    data?.forEach(
+      (item) => (Total += Number(item.price) * Number(item.quantitiy))
+    );
     setTotal(Total);
     console.log(typeof Total);
   }, [data]);
 
-  const handleQuantity = (id, quantity, val) => {
+  const handleQuantity = (id, quantitiy, val) => {
     data.map((item, index) =>
-      item.id === id ? (quantity = quantity + val) : quantity
+      item.id === id ? (quantitiy = quantitiy + val) : quantitiy
     );
     axios
       .patch(`https://growup.onrender.com/orders/${id}`, {
-        quantity: quantity,
+        quantitiy: quantitiy,
       })
       .then(() => getCartItems());
   };
- 
+
   return (
     <>
       <Navbar2 />
@@ -95,31 +97,27 @@ const Cart = () => {
           bg="#F5F7F7"
           p={"2.5%"}
           gap="5px"
-          flexDir={{ base: "column", md: "row" }}
-        >
+          flexDir={{ base: "column", md: "row" }}>
           <Box
             width={"65%"}
             overflowY="scroll"
             boxSize={"borderBox"}
             bg="white"
-            p={"30px"}
-          >
+            p={"30px"}>
             <Box
               display="flex"
               flexDir={"row"}
               alignItems="center"
               columnGap={4}
               pb="30px"
-              w="100%"
-            >
+              w="100%">
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/2940/2940522.png"
                 w={"35px"}
               />
               <Text
                 fontWeight="400"
-                fontSize={{ base: "md", md: "xl", lg: "2xl" }}
-              >
+                fontSize={{ base: "md", md: "xl", lg: "2xl" }}>
                 <Text as={"span"}></Text> Item in your Bag
               </Text>
             </Box>
@@ -130,13 +128,13 @@ const Cart = () => {
                   key={cart.id}
                   m={"auto"}
                   display="flex"
-                  boxSizing="border-box"
-                >
+                  boxSizing="border-box">
                   <HStack gap={4}>
                     <Box>
                       <Image
                         src={cart.image1}
-                        alt="cart image"f
+                        alt="cart image"
+                        f
                         h={150}
                         w={150}
                       />
@@ -156,37 +154,31 @@ const Cart = () => {
                     <Box ml={10}>
                       <Button
                         bg={"#F25B22"}
-                        isDisabled={cart.quantity === 1}
+                        isDisabled={cart.quantitiy === 1}
                         onClick={() =>
-                          handleQuantity(cart.id, cart.Quantity, -1)
-                        }
-                      >
+                          handleQuantity(cart.id, cart.quantitiy, -1)
+                        }>
                         -
                       </Button>
 
-                      <Button isDisabled>{cart.quantity+1}</Button>
+                      <Button isDisabled>{cart.quantitiy}</Button>
 
                       <Button
                         bg={"#F25B22"}
                         onClick={() =>
-                          handleQuantity(cart.id, cart.quantity, 1)
-                        }
-                      >
+                          handleQuantity(cart.id, cart.quantitiy, 1)
+                        }>
                         +
                       </Button>
                     </Box>
                     <Box>
-                      <Text fontSize={16}>{`₹ ${
-                       cart.price
-                      }`}</Text>
+                      <Text fontSize={16}>{`₹ ${cart.price}`}</Text>
                     </Box>
                     <Box>
                       <Button
-                        
                         textColor={"whi"}
-                        onClick={() => handleDelete(cart.id)}
-                      >
-                        <MdDelete/>
+                        onClick={() => handleDelete(cart.id)}>
+                        <MdDelete />
                       </Button>
                     </Box>
                   </HStack>
@@ -200,8 +192,7 @@ const Cart = () => {
             display={"flex"}
             flexDir="column"
             bg="#F5F7F7"
-            rowGap={"25px"}
-          >
+            rowGap={"25px"}>
             <Box p={"20px"} bg="white">
               <Box
                 display="flex"
@@ -209,8 +200,7 @@ const Cart = () => {
                 alignItems="center"
                 columnGap={4}
                 pb="10px"
-                borderBottom={"1px solid black"}
-              >
+                borderBottom={"1px solid black"}>
                 <Image
                   src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
                   w={"35px"}
@@ -227,8 +217,7 @@ const Cart = () => {
                 columnGap={4}
                 p="10px"
                 border={"1px solid black"}
-                mt="15%"
-              >
+                mt="15%">
                 <Text fontWeight="400" fontSize={"1rem"}>
                   Delivery to{" "}
                   <Text as={"span"} fontWeight="600">
@@ -246,8 +235,7 @@ const Cart = () => {
                 flexDir={"row"}
                 alignItems="center"
                 columnGap={4}
-                pb="10px"
-              >
+                pb="10px">
                 <Image
                   src="https://cdn-icons-png.flaticon.com/512/7324/7324863.png"
                   w={"35px"}
@@ -262,8 +250,7 @@ const Cart = () => {
                 alignItems="center"
                 justifyContent={"space-between"}
                 columnGap={4}
-                p="10px"
-              >
+                p="10px">
                 <Text fontWeight="400" fontSize={"1rem"}>
                   Bag Total
                 </Text>
@@ -277,8 +264,7 @@ const Cart = () => {
                 alignItems="center"
                 justifyContent={"space-between"}
                 columnGap={4}
-                p="10px"
-              >
+                p="10px">
                 <Text fontWeight="400" fontSize={"1rem"}>
                   Shopping Charges
                 </Text>
@@ -292,8 +278,7 @@ const Cart = () => {
                 alignItems="center"
                 justifyContent={"space-between"}
                 columnGap={4}
-                p="10px"
-              >
+                p="10px">
                 <Text fontWeight="400" fontSize={"1rem"}>
                   Amount Payable : {total}
                 </Text>
@@ -302,101 +287,17 @@ const Cart = () => {
                 </Text>
               </Box>
               <Box>
-                <Button
-                  width={"100%"}
-                  bg={"#F25B22"}
-                  color="white"
-                  fontWeight={"bold"}
-                  fontSize={"1rem"}
-                  onClick={() => onOpen()}
-                >
-                  CHECKOUT
-                </Button>
-
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>ADD NEW ADDRESS</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Full Name*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Mobile Number*"
-                        />
-                      </Box>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Pincode*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="City*"
-                        />
-                      </Box>
-                      <Box style={{ display: "flex", gap: "30px" }}>
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="State*"
-                        />
-                        <Input
-                          my="2"
-                          type="text"
-                          required
-                          placeholder="Country*"
-                        />
-                      </Box>
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Flat No/Building , Street Name*"
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Area/Locality*"
-                      />
-                      <Input
-                        my="2"
-                        type="text"
-                        required
-                        placeholder="Landmark"
-                      />
-                      <Text>
-                        PS. Your information is safe with us, No spam.
-                      </Text>
-                    </ModalBody>
-
-                    <ModalFooter>
-                      <Button
-                        className="modal-add-address-btn"
-                        bg={"#F25B22"}
-                        color="white"
-                        fontWeight={"bold"}
-                        fontSize={"1rem"}
-                      >
-                        <Link to="/payment">PAY NOW</Link>
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
+                <Link to={"/paymentDetails"}>
+                  {" "}
+                  <Button
+                    width={"100%"}
+                    bg={"#F25B22"}
+                    color="white"
+                    fontWeight={"bold"}
+                    fontSize={"1rem"}>
+                    CHECKOUT
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Box>
@@ -409,7 +310,7 @@ const Cart = () => {
             </div>
     )})} */}
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </>
   );
 };

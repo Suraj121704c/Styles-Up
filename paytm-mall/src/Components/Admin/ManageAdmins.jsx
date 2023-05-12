@@ -70,4 +70,4 @@ const ManageAdmins = () => {
     </Box>
   )
 }
-export default ManageAdmins;
+export default ManageAdmins;

@@ -81,29 +81,26 @@ const Navbar2 = () => {
         className="navbar"
         w={{ md: "100%", lg: "100%" }}
         m="auto"
-        position={isSticky ? "fixed" : "static"}
+        position={"static"}
         top="-7px"
         backgroundColor="white"
-        zIndex="1000"
-      >
+        zIndex="1000">
         <Box
           className="navLeft"
-          gap={{ base: "4px", sm: "10px", md: "15px", lg: "20px" }}
-        >
+          gap={{ base: "12px", sm: "10px", md: "15px", lg: "20px" }}>
           <Link to="/">
             <Image
-              p="6px"
+              p={["0px", "6px"]}
               src={image}
               alt="unique_logo"
-              height={"24"}
-              width={"25"}
+              height={["0", "0", "24"]}
+              width={["0", "0", "25"]}
             />
           </Link>
           <Box className="active" w={{ base: "40%", md: "18%", lg: "20%" }}>
             <Box
               className="nav_category"
-              p={{ base: "1px", sm: "4px", md: "6px", lg: "8px" }}
-            >
+              p={{ base: "1px", sm: "4px", md: "6px", lg: "8px" }}>
               <Image
                 src={menu}
                 alt=""
@@ -112,9 +109,10 @@ const Navbar2 = () => {
               />
 
               <Box
-                marginTop={{ base: "-6px", sm: "0px", md: "0px", lg: "0px" }}
-              >
-                <Text as="b" fontSize={{ base: "6px", md: "12px", lg: "14px" }}>
+                marginTop={{ base: "-6px", sm: "0px", md: "0px", lg: "0px" }}>
+                <Text
+                  as="b"
+                  fontSize={{ base: "10px", md: "12px", lg: "14px" }}>
                   Shop By Category
                 </Text>
               </Box>
@@ -122,8 +120,7 @@ const Navbar2 = () => {
 
             <Box
               className="deepmenu"
-              w={{ base: "100%", sm: "130%", md: "90%", lg: "66%" }}
-            >
+              w={{ base: "100%", sm: "130%", md: "90%", lg: "66%" }}>
               <ul style={{ display: "inline-block" }} />
               <Box className="first">
                 <Box
@@ -131,8 +128,7 @@ const Navbar2 = () => {
                   h="442px"
                   mt="-20px"
                   p="20px"
-                  className="localWarehouse"
-                >
+                  className="localWarehouse">
                   <Flex>
                     <Box>
                       <Text fontSize="sm" color="red">
@@ -150,15 +146,13 @@ const Navbar2 = () => {
                           sm: "50px",
                           md: "80px",
                           lg: "100px",
-                        }}
-                      ></Box>
+                        }}></Box>
                       <VStack ml="10px" align="left">
                         <Link to={`/jewellery`}>
                           <Text
                             onClick={() => {
                               setCategory("jewellery");
-                            }}
-                          >
+                            }}>
                             Jewellery
                           </Text>
                         </Link>
@@ -166,8 +160,7 @@ const Navbar2 = () => {
                           <Text
                             onClick={() => {
                               setCategory("glasses");
-                            }}
-                          >
+                            }}>
                             Glasses
                           </Text>
                         </Link>
@@ -175,8 +168,7 @@ const Navbar2 = () => {
                           <Text
                             onClick={() => {
                               setCategory("decoration");
-                            }}
-                          >
+                            }}>
                             Decoration
                           </Text>
                         </Link>
@@ -184,8 +176,7 @@ const Navbar2 = () => {
                           <Text
                             onClick={() => {
                               setCategory("electronic");
-                            }}
-                          >
+                            }}>
                             Furniture & Electronics
                           </Text>
                         </Link>
@@ -193,8 +184,7 @@ const Navbar2 = () => {
                           <Text
                             onClick={() => {
                               setCategory("autoMobiles");
-                            }}
-                          >
+                            }}>
                             Automobiles
                           </Text>
                         </Link>
@@ -218,8 +208,7 @@ const Navbar2 = () => {
           <Box
             className="options"
             w={{ base: "50%", md: "77%", lg: "82%" }}
-            p={{ base: "0px", sm: "4px", md: "4px", lg: "4px" }}
-          >
+            p={{ base: "0px", sm: "4px", md: "4px", lg: "4px" }}>
             {/* use debouncing   */}
             <Box w="100%">
               <input
@@ -244,16 +233,19 @@ const Navbar2 = () => {
           className="nav_right"
           ml={{ base: "-15px" }}
           p={{ base: "0px" }}
-          w={{ base: "50%", md: "40%", lg: "30%" }}
-        >
+          w={{ base: "0%", md: "40%", lg: "30%" }}
+          display={"flex"}
+          flexWrap={"wrap"}>
           <Link to={"/orders"}>
             <Box className="order" w={{ base: "20%", md: "30%", lg: "33%" }}>
               <Image
                 src={list}
                 alt="order_list_logo"
-                w={{ base: "10px", md: "20px", lg: "25px" }}
+                w={{ base: "0px", md: "20px", lg: "25px" }}
               />
-              <Text fontSize={{ base: "6px", sm: "md", lg: "md" }}>Orders</Text>
+              <Text fontSize={{ base: "0px", sm: "0px", lg: "25px" }}>
+                Orders
+              </Text>
             </Box>
           </Link>
 
@@ -262,9 +254,10 @@ const Navbar2 = () => {
               <Image
                 src={cartbag}
                 alt="cart_logo"
-                w={{ base: "10px", md: "20px", lg: "25px" }}
+                w={{ base: "0px", md: "0px", lg: "25px" }}
+                h={["10px"]}
               />
-              <Text fontSize={{ base: "6px", md: "md", lg: "md" }}>Cart</Text>
+              <Text fontSize={{ base: "15px", md: "15px", lg: "md" }}>Cart</Text>
             </Box>
           </Link>
           {isAuth ? (
@@ -276,8 +269,7 @@ const Navbar2 = () => {
               />
               <Text
                 onClick={handleLogout}
-                fontSize={{ base: "6px", sm: "md", lg: "md" }}
-              >
+                fontSize={{ base: "15px", sm: "md", lg: "md" }}>
                 Logout
               </Text>
             </Box>
@@ -285,11 +277,11 @@ const Navbar2 = () => {
             <Link to={"/login"}>
               <Box className="user" w={{ base: "33%", md: "30%", lg: "33%" }}>
                 <Image
-                  w={{ base: "10px", md: "20px", lg: "20px" }}
+                  w={{ base: "0px", md: "20px", lg: "20px" }}
                   src="https://lh3.googleusercontent.com/cKM952bxPmD-jF370bX__2kVdNWHevwFKTFcYyIFL1j64IyV6PCO44udzF-Zokf4FFl5tjY9n9kUZda3_KzHtoLv=w128-h128-e365-rj-sc0x00ffffff"
                   alt=""
                 />
-                <Text fontSize={{ base: "6px", sm: "md", lg: "md" }}>
+                <Text fontSize={{ base: "8px", sm: "md", lg: "md" }}>
                   Login/SignUp
                 </Text>
               </Box>
