@@ -1,109 +1,140 @@
 import React from "react";
-import { Box, Button, Flex, Image, Input } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Stack,
+  useColorModeValue,
+  HStack,
+  Avatar,
+  AvatarBadge,
+  IconButton,
+  Center,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  useToast,
+} from "@chakra-ui/react";
+import { SmallCloseIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Navbar2 from "../Components/Navbar2";
+import { Link } from "react-router-dom";
 
 const PaymentDetails = () => {
   let Navigate = useNavigate();
+  const toast = useToast();
+
   return (
     <>
       <Navbar2 />
-      <Box
-        w="700px"
-        ml="180px"
-        h="600px"
-        boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
-        marginTop={"30px"}
-        marginBottom={"30px"}
-        marginLeft={"27%"}
-        marginRight={"200px"}>
-        <Box bg="#00bac6" color={"white"} fontWeight="650" p="8px 0px 8px 8px ">
-          PAYMENT OPTION
-        </Box>
-        <Box display={"flex"}>
-          <Box w="200px">
-            <Box p="16px 0px 16px 16px" fontWeight={"500"}>
-              Credit/Debit Card
-            </Box>
-            <Box p="16px 0px 16px 16px" fontWeight={"500"}>
-              BHIM/UPI Phone Pe
-            </Box>
-            <Box p="16px 0px 16px 16px" fontWeight={"500"}>
-              Net Banking
-            </Box>
-            <Box p="16px 0px 16px 16px" fontWeight={"500"}>
-              UPI qr Code
-            </Box>
-            <Box p="16px 0px 16px 16px" fontWeight={"500"}>
-              Paytm
-            </Box>
-          </Box>
-          <Box m="10px 10px 10px 10px ">
-            <Flex justifyContent={"space-between"}>
-              <Box>100% Secure</Box>
-              <Image
-                ml="140px"
-                h="22px"
-                src="https://static5.lenskart.com/images/cust_mailer/Mar-03/CheckoutStrip.png"
-              />
-            </Flex>
+      <Flex
+        minH={"100vh"}
+        align={"center"}
+        justify={"center"}
+        bg={useColorModeValue("gray.50", "gray.800")}>
+        <Stack
+          spacing={4}
+          w={"full"}
+          maxW={"md"}
+          bg={useColorModeValue("white", "gray.700")}
+          rounded={"xl"}
+          boxShadow={"lg"}
+          p={6}
+          my={12}>
+          <Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
+            Payment
+          </Heading>
+          <FormControl id="userName">
+            <FormLabel>User Image</FormLabel>
+            <Stack direction={["column", "row"]} spacing={6}>
+              <Center>
+                <Avatar size="xl" src="https://bit.ly/sage-adebay">
+                  <AvatarBadge
+                    as={IconButton}
+                    size="sm"
+                    rounded="full"
+                    top="-10px"
+                    colorScheme="red"
+                    aria-label="remove Image"
+                    icon={<SmallCloseIcon />}
+                  />
+                </Avatar>
+              </Center>
+              <Center w="full">
+                <Button w="full">Change Icon</Button>
+              </Center>
+            </Stack>
+          </FormControl>
+          <FormControl id="userName" isRequired>
+            <FormLabel>User name</FormLabel>
             <Input
-              placeholder="Enter Card Number"
-              h="30px"
-              m="20px 10px 10px 10px "
+              placeholder="UserName"
+              _placeholder={{ color: "gray.500" }}
+              type="text"
             />
-
-            <Flex m="20px 0px ">
-              <Input placeholder="MM/YYYY" h="30px " mr="10px" ml="10px" />
-              <Input h="30px" placeholder="CVV" />
-            </Flex>
+          </FormControl>
+          <FormControl id="email" isRequired>
+            <FormLabel>Account Number</FormLabel>
             <Input
-              placeholder="Cardholder Name"
-              h="30px"
-              m="20px 10px 20px 10px"
-              w="490px"
+              placeholder="your-account-number"
+              _placeholder={{ color: "gray.500" }}
+              type="number"
             />
-
-            <Box
-              display={"flex"}
-              fontSize="11px"
-              ml="20px"
-              bg="#fdf6ed"
-              w="180px"
-              p="5px 5px">
-              <Image
-                w="15px"
-                h="15px"
-                mt="2px"
-                src="https://static5.lenskart.com/images/cust_mailer/Mar-03/Info_SubmitPowerAlert.png"
-              />
-              (Submit Power in the Next Step)
-            </Box>
+          </FormControl>
+          <FormControl id="password" isRequired>
+            <FormLabel>Phone No.</FormLabel>
+            <Input
+              placeholder="phone number"
+              _placeholder={{ color: "gray.500" }}
+              type="number"
+            />
+          </FormControl>
+          <FormControl id="password" isRequired>
+            <FormLabel>Adress</FormLabel>
+            <Input
+              placeholder="adress..."
+              _placeholder={{ color: "gray.500" }}
+              type="text"
+            />
+          </FormControl>
+          <Stack spacing={6} direction={["column", "row"]}>
             <Button
-              fontSize={"13px"}
-              ml="20px "
-              mt="20px "
-              mb="30px"
-              bg="#3bb3a9"
+              bg={"red.400"}
               color={"white"}
-              borderRadius="4px"
-              p="12px 23px 12px 23px "
-              _hover={{ backgroundColor: "#3bb3a9" }}
-              onClick={() => {
-                alert("Order succesfully placed");
-                Navigate("/payment");
+              w="full"
+              _hover={{
+                bg: "red.500",
               }}>
-              PLACE ORDER
+              Cancel
             </Button>
-          </Box>
-        </Box>
-        <Box p="10px">Lenskart Assurance</Box>
-        <Image
-          p="10px"
-          src="https://static1.lenskart.com/media/desktop/img/all-assurance-offering.png"
-        />
-      </Box>
+            <Link to="/payment">
+              <Button
+                bg={"blue.400"}
+                color={"white"}
+                w="full"
+                _hover={{
+                  bg: "blue.500",
+                }}
+                onClick={() =>
+                  toast({
+                    title: "Payment successfull.",
+                    status: "success",
+                    duration: 9000,
+                    isClosable: true,
+                    position: "top",
+                  })
+                }>
+                Submit
+              </Button>
+            </Link>
+          </Stack>
+        </Stack>
+      </Flex>
     </>
   );
 };
