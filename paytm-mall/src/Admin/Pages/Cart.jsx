@@ -17,6 +17,8 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
+  Center,
+  Spinner,
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
@@ -105,7 +107,7 @@ const Cart = () => {
             bg="white"
             p={"30px"}>
             <Box
-              display="flex"
+              display={["none","flex"]}
               flexDir={"row"}
               alignItems="center"
               columnGap={4}
@@ -123,67 +125,79 @@ const Cart = () => {
             </Box>
 
             <Grid gap={5}>
-              {data?.map((cart) => (
-                <GridItem
-                  key={cart.id}
-                  m={"auto"}
-                  display="flex"
-                  boxSizing="border-box">
-                  <HStack gap={4}>
-                    <Box>
-                      <Image
-                        src={cart.image1}
-                        alt="cart image"
-                        f
-                        h={150}
-                        w={150}
-                      />
-                    </Box>
-                    <Box>
-                      <Text fontSize={20}>{cart.title}</Text>
-                      <Text fontSize={18}>{cart.Category}</Text>
-                      <Text fontSize={18}>Rating : {cart.rating}</Text>
-                      <Text fontSize={15}>
-                        Discounted Price :{`${cart.price}`}
-                      </Text>
-                      <Text fontSize={15}>Sold by: Smart Shop </Text>
-                      {/* Buttons Quantity */}
-                    </Box>
-                  </HStack>
-                  <HStack gap={10}>
-                    <Box ml={10}>
-                      <Button
-                        bg={"#F25B22"}
-                        isDisabled={cart.quantitiy === 1}
-                        onClick={() =>
-                          handleQuantity(cart.id, cart.quantitiy, -1)
-                        }>
-                        -
-                      </Button>
+              {data.length === 0 ? (
+                <Center>
+                  <Spinner
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="blue.500"
+                    size="xl"
+                  />
+                </Center>
+              ) : (
+                data?.map((cart) => (
+                  <GridItem
+                    key={cart.id}
+                    m={"auto"}
+                    display={["inline","flex"]}
+                    boxSizing="border-box">
+                    <HStack gap={4}>
+                      <Box>
+                        <Image
+                          src={cart.image1}
+                          alt="cart image"
+                          f
+                          h={150}
+                          w={150}
+                        />
+                      </Box>
+                      <Box>
+                        <Text fontSize={20}>{cart.title}</Text>
+                        <Text fontSize={18}>{cart.Category}</Text>
+                        <Text fontSize={18}>Rating : {cart.rating}</Text>
+                        <Text fontSize={15}>
+                          Discounted Price :{`${cart.price}`}
+                        </Text>
+                        <Text fontSize={15}>Sold by: Smart Shop </Text>
+                        {/* Buttons Quantity */}
+                      </Box>
+                    </HStack>
+                    <HStack gap={10}>
+                      <Box ml={10}>
+                        <Button
+                          bg={"#F25B22"}
+                          isDisabled={cart.quantitiy === 1}
+                          onClick={() =>
+                            handleQuantity(cart.id, cart.quantitiy, -1)
+                          }>
+                          -
+                        </Button>
 
-                      <Button isDisabled>{cart.quantitiy}</Button>
+                        <Button isDisabled>{cart.quantitiy}</Button>
 
-                      <Button
-                        bg={"#F25B22"}
-                        onClick={() =>
-                          handleQuantity(cart.id, cart.quantitiy, 1)
-                        }>
-                        +
-                      </Button>
-                    </Box>
-                    <Box>
-                      <Text fontSize={16}>{`₹ ${cart.price}`}</Text>
-                    </Box>
-                    <Box>
-                      <Button
-                        textColor={"whi"}
-                        onClick={() => handleDelete(cart.id)}>
-                        <MdDelete />
-                      </Button>
-                    </Box>
-                  </HStack>
-                </GridItem>
-              ))}
+                        <Button
+                          bg={"#F25B22"}
+                          onClick={() =>
+                            handleQuantity(cart.id, cart.quantitiy, 1)
+                          }>
+                          +
+                        </Button>
+                      </Box>
+                      <Box>
+                        <Text fontSize={16}>{`₹ ${cart.price}`}</Text>
+                      </Box>
+                      <Box>
+                        <Button
+                          textColor={"whi"}
+                          onClick={() => handleDelete(cart.id)}>
+                          <MdDelete />
+                        </Button>
+                      </Box>
+                    </HStack>
+                  </GridItem>
+                ))
+              )}
             </Grid>
           </Box>
           <Box
