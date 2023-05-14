@@ -1,20 +1,14 @@
+import { DeleteIcon } from "@chakra-ui/icons";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
 //import { BsCheck2All } from "react-icons/bs";
 const ProductItems = ({
-  i,
-  _id,
-  product_name,
-  product_price,
-  product_img,
-  product_desc,
-  product_rating,
-  product_type,
-  user_ID,
-  product_weight,
-  handleToggleStatus,
-  handleOpenDetails,
+   id,
+   Brand,
+   title,
+   discount,
+   price,Category,image1,rating,handleDelete,handleOpenDetails
 }) => {
   return (
     <Box
@@ -32,39 +26,50 @@ const ProductItems = ({
           width={{ base: "10%", md: "10%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
         >
-          <Text>{_id}</Text>
+          <Text>{discount}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "13%", lg: "10%" }}
           onClick={() => {
-            handleOpenDetails(_id, product_name, product_price, product_img);
+            handleOpenDetails(id, discount ,
+              price,
+             image1)
           }}
         >
-          <Image width={"100%"} src={product_img} alt={user_ID}></Image>
+          <Image width={"100%"} src={image1} alt={Category}></Image>
         </Box>
         <Box
           width={{ base: "10%", md: "27%", lg: "25%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
           onClick={() => {
-            handleOpenDetails(_id, product_name, product_price, product_img);
+            handleOpenDetails(id, discount ,
+              price,
+             image1)
           }}
         >
-          <Text>{product_name}</Text>
+          <Text>{Brand}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "10%", lg: "8%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
           onClick={() => {
-            handleOpenDetails(_id, product_name, product_price, product_img);
+            handleOpenDetails(id, discount ,
+              price,
+             image1)
           }}
         >
-          <Text>$ {product_price}</Text>
+          <Text>$ {price}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "15%", lg: "15%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
         >
-          <Text>{product_type}</Text>
+          <Text>{Category}</Text>
+        </Box>
+        <Box w={{ base: "5%", md: "15%", lg: "10%" }} 
+        onClick={()=> handleDelete(id)}
+        >
+           <DeleteIcon  w={6} h={7} />
         </Box>
       </Box>
       {/* ```````````````````````````````small screen ``````````````````````````````````*/}
@@ -78,16 +83,16 @@ const ProductItems = ({
         <Box
           width={{ base: "50%", sm: "40%" }}
           onClick={() => {
-            handleOpenDetails(_id, product_name, product_price, product_img);
+            handleOpenDetails(id, image1, price, title);
           }}
         >
           <Image
             width={{ base: "60%", sm: "40%" }}
-            src={product_img}
-            alt={product_img}
+            src={image1}
+            alt={title}
           ></Image>
           <Text fontWeight={"bold"} fontSize={"lg"} mt={"20px"}>
-            $ {product_price}
+            $ {price}
           </Text>
         </Box>
         {/* ```````````````````````````````````right Div````````````````````````````` */}
@@ -99,15 +104,24 @@ const ProductItems = ({
         >
           <Box>
             <Text as="b" fontSize={{ base: "13px", sm: "14px" }}>
-              {product_price}
+              {Brand}
             </Text>
             <Text mt={"10px"} fontSize={{ base: "12px", sm: "13px" }}>
-              {product_type}
+              {Category}
             </Text>
             <Text mt={"10px"} fontSize={{ base: "12px", sm: "13px" }}>
-              ID- {_id}
+              ID- {id}
             </Text>
           </Box>
+
+          <Button
+            mt={"10px"}
+            size={"sm"}
+        onClick={()=> handleDelete(id)}
+            
+          >
+               <DeleteIcon/>
+          </Button>
         </Box>
       </Box>
     </Box>
@@ -115,3 +129,4 @@ const ProductItems = ({
 };
 
 export default ProductItems;
+

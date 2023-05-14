@@ -23,7 +23,7 @@ const Customers = () => {
   const [CustomerData, setCustomerData] = useState([])
 
   const GetCustomers = () => {
-    axios.get(`https://courageous-cow-beret.cyclic.app/user/`)
+    axios.get(`https://hilarious-erin-shift.cyclic.app/admin`)
       .then((res) => {
         console.log(res.data)
         setCustomerData(res.data)
@@ -56,12 +56,9 @@ const Customers = () => {
         margin={"auto"}
         textAlign={"center"}
       >
-        Customers
+         Customers
       </Text>
-
-      <Box mt={"30px"} width={{ base: "100%", md: "50%", lg: "30%" }}>
-
-      </Box>
+ 
 
       <Box
         display={{ base: "none", md: "flex" }}
@@ -95,7 +92,7 @@ const Customers = () => {
           width={{ base: "10%", md: "15%" }}
           fontSize={{ base: "12px", md: "11px", lg: "14px" }}
         >
-          <Text>GENDER</Text>
+          <Text>CONTACT</Text>
         </Box>
 
         <Box
@@ -110,7 +107,7 @@ const Customers = () => {
           fontSize={{ base: "12px", md: "11px", lg: "14px" }}
           textAlign={"center"}
         >
-          <Text>STATUS</Text>
+          <Text>ROLE</Text>
         </Box>
 
       </Box>
@@ -130,7 +127,7 @@ const Customers = () => {
             alignItems={"center"}
           >
             <Box
-              width={{ base: "5%", md: "7%" }}
+              width={{ base: "5%", md: "9%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
             >
               <Text>{i + 1}</Text>
@@ -152,7 +149,7 @@ const Customers = () => {
               width={{ base: "10%", md: "15%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
             >
-              <Text as={"mark"}>{el.gender}</Text>
+              <Text as={"mark"}>{el.contact}</Text>
             </Box>
 
             <Box
@@ -162,19 +159,15 @@ const Customers = () => {
             >
               <Text>{el.email}</Text>
             </Box>
+
             <Box
-                  as='button'
-                  p={3}
-                  color='white'
-                  fontWeight='bold'
-                  borderRadius='md'
-                  bgGradient='linear(to-r, teal.500, pink.500)'
-                  _hover={{
-                    bgGradient: 'linear(to-r, red.500, yellow.500)',
-                  }}
-                >
-                   Active
-                </Box>
+              width={{ base: "15%", md: "15%" }}
+              fontSize={{ base: "12px", md: "11px", lg: "14px" }}
+              textAlign={"center"}
+            >
+              <Text>{el.role}</Text>
+            </Box>
+            
 
 
           </Box>
@@ -231,7 +224,7 @@ const Customers = () => {
                   mt={"10px"}
                   fontSize={{ base: "12px", sm: "13px" }}
                 >
-                  {el.gender}
+                  {el.contact}
                 </Text>
                 <Text
                   fontWeight={"bold"}
@@ -241,20 +234,16 @@ const Customers = () => {
                 >
                   Mail-{el.email}
                 </Text>
-                <Box
-                  as='button'
-                  p={3}
-                  color='white'
-                  fontWeight='bold'
-                  borderRadius='md'
-                  bgGradient='linear(to-r, teal.500, pink.500)'
-                  _hover={{
-                    bgGradient: 'linear(to-r, red.500, yellow.500)',
-                  }}
+                <Text
+                  fontWeight={"bold"}
+                  mt={"10px"}
+                  fontSize={{ base: "13px", sm: "14px" }}
+                  color={"green.500"}
                 >
-                   Active
-                </Box>
-
+                  Mail-{el.role}
+                </Text>
+             
+ 
               </Box>
             </Box>
           </Box>

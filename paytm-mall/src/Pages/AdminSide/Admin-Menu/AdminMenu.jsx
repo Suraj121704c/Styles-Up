@@ -25,10 +25,10 @@ import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import Dashboard from "../dashboard";
 import Products from "../Products-Cat/products";
-import Orders from "../Orders/orders";
 import Customers from "../customers";
 import AccountInfo from "../accountInfo";
 import  logo from "./Diamond-lane.png"
+import AddProducts from "../AddNew/AddProducts";
 const AdminMenu = () => {
   const prodRef = useRef();
   const dashboardRef = useRef();
@@ -123,7 +123,7 @@ const AdminMenu = () => {
             border={"none"}
             _focus={{ outline: "none" }}
           >
-            Orders
+            Add New Products
           </Tab>
           <Tab
             ref={customerRef}
@@ -188,7 +188,7 @@ const AdminMenu = () => {
             <Products />
           </TabPanel>
           <TabPanel p={0}>
-            <Orders />
+            <AddProducts/>
           </TabPanel>
           <TabPanel p={0}>
             <Customers />

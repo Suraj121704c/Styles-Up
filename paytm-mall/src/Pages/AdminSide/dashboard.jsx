@@ -62,7 +62,9 @@ const Dashboard = () => {
   });
 
   return (
-    <Box bgGradient='linear(to-l, blue.100, pink.100)' >
+    <Box
+     bgGradient='linear(to-l, blue.100, pink.100)' 
+     >
       <Text
         bgGradient='linear(to-l, #7928CA, #FF0080)'
         mt={{ base: 35 , md:  5, lg: 2}}
@@ -118,7 +120,7 @@ const Dashboard = () => {
         fontWeight='extrabold'
         textAlign={"center"}
       >
-        COPYRIGHT CARATLANE © 2023
+        COPYRIGHT  StylesUp © 2023
       </Text>
     </Box>
   );

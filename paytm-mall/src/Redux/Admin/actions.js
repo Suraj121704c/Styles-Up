@@ -160,7 +160,7 @@ export const deleteAdmin = (id) => async (dispatch) => {
   dispatch(deleteAdminRequest());
   try {
     let { data } = await axios.delete(
-      `https://hilarious-erin-shift.cyclic.app/admin/${id}`
+      `hhttps://universal-mall-api.onrender.com/admin/${id}`
     );
     dispatch(deleteAdminSuccess(id));
     return data;

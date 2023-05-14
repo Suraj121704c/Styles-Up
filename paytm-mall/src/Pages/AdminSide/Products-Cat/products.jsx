@@ -28,19 +28,19 @@ const Products = () => {
   const toast = useToast();
   const [datas, setDatas] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [title, setTitle] = useState("");
+  const [discount,setDiscount ] = useState("");
   const [price, setPrice] = useState(0);
-  const [image, SetImage] = useState("");
+  const [image1, SetImage] = useState("");
   const [mid, msetId] = useState("");
  
   
   // `````````````````````Editable Modal ````````````````````````````````
-  const handleOpenDetails = (id, product_name,
-    product_price,
-    product_img ) => {
-    setTitle(product_name);
-    setPrice(product_price);
-    SetImage(product_img);
+  const handleOpenDetails = (id, discount ,
+     price,
+    image1 ) => {
+    setDiscount(discount)
+    setPrice(price);
+    SetImage(image1);
     msetId(id);
     onOpen();
   };
@@ -49,34 +49,47 @@ const Products = () => {
   const handleGetData = () => {
     axios
       .get(
-        `https://courageous-cow-beret.cyclic.app/products`
+        `https://growup.onrender.com/fashion`
       )
-      .then((res) => setDatas(res.data))
+      .then((res) => { 
+         console.log(res)
+        setDatas(res.data)
+      })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
     handleGetData();
   }, [ ]);
 
+  const handleDelete = (id) => {
+    axios
+      .delete(
+        `https://growup.onrender.com/fashion/${id}`
+      )
+      .then((res) => { 
+        Swal.fire("Good job!", "Deleted Successfully", "success");
+      })
+      .catch((err) =>  Swal.fire(
+        "Error",
+        "Something went wrong. Please try after sometime",
+        "error"
+      ));
+  };
+ 
   //```````````````````````````````````````````````````````````` submit modal data`````````````````````````````
   // product_name,
   //  product_price,
   //  product_img,
-  const handleSubmitModalDetails = (mid) => {
+  const handleSubmitModalDetails = () => {
     let dataToSend = {
-      product_name: title,
-      product_price: +price,
-      product_img: image,
+       discount : +discount,
+       price: +price,
+       image1 : image1,
     };
 
     axios
       .patch(
-        `${process.env.REACT_APP_BASE_URL}/product/update/${mid}`,{
-          headers : {
-            "Authorization" : `Bearer ${localStorage.getItem("token")}`,
-            "content-type" : "application/json"
-          }
-        },
+        `https://growup.onrender.com/fashion/${mid}`,
         dataToSend
       )
       .then((res) => {
@@ -96,102 +109,96 @@ const Products = () => {
  
   return (
     <Box
-    color={"pink.700"}
+    color= "pink.600"
     fontWeight={"bold"}
-      minH={"100vh"}
-      mt={{ base: "60px", md: "0px" }}
-      padding={"20px"}
-      bgGradient="linear(to-r, #F8BBD0, #b3d4fc)"      >
-      <Text
-        bgGradient='linear(to-l, #7928CA, #FF0080)'
-        bgClip='text'
-        fontSize='6xl'
-        fontWeight='extrabold'
-      >
-        Products
-      </Text>
-      <Text color={"#00b5b8"}>List of Products</Text>
-      {/* Table of all products */}
-      <Box mt={"30px"} w={"100%"}>
-        <Box display={"flex"} justifyContent={"space-between"} mb={"20px"}>
-         
-          
-        </Box>
+    bgGradient='linear(to-l, blue.100, pink.100)' 
+    minH={"100vh"}
+    mt={{ base: "60px", md: "0px" }}
+    padding={"20px"}
+    
+  >
+    <Heading>Products</Heading>
+    <Text color={"#00b5b8"}>List of Products</Text>
+  
 
-        
+      {/* all products append */}
 
-        <Box>
-          <SimpleGrid gap={5}>
+      <Box>
+        <SimpleGrid gap={5}>
+          <Box
+            display={{ base: "none", md: "flex" }}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+            textAlign={"left"}
+            boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
+            padding={"10px"}
+            mt={"20px"}
+          >
             <Box
-              display={{ base: "none", md: "flex" }}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              textAlign={"left"}
-              boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
-              padding={"10px"}
-              mt={"20px"}
+              width={"6%"}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
             >
-              <Box
-                width={{ base: "10%", md: "10%" }}
-                fontSize={{ base: "12px", md: "12px", lg: "md" }}
-              >
-                <Text>ID</Text>
-              </Box>
-              <Box
-                width={{ base: "5%", md: "13%", lg: "10%" }}
-                fontSize={{ base: "12px", md: "12px", lg: "md" }}
-              >
-                <Text>IMAGE</Text>
-              </Box>
-              <Box
-                width={{ base: "10%", md: "27%", lg: "25%" }}
-                fontSize={{ base: "12px", md: "12px", lg: "md" }}
-              >
-                <Text>PRODUCTS</Text>
-              </Box>
-              <Box
-                width={{ base: "5%", md: "7%", lg: "8%" }}
-                fontSize={{ base: "12px", md: "12px", lg: "md" }}
-              >
-                <Text>PRICE</Text>
-              </Box>
-              <Box
-                width={{ base: "5%", md: "15%", lg: "15%" }}
-                fontSize={{ base: "12px", md: "12px", lg: "md" }}
-              >
-                <Text>CATEGORY</Text>
-              </Box>
-            
+              <Text>Discount</Text>
             </Box>
-         {/* map data */}
-         {datas.map((el, i) => (
-              <ProductItems
-                key={el._id}
-                i={i}
-                {...el}
-                handleOpenDetails={handleOpenDetails}
-                
-              />
-            ))}
-          </SimpleGrid>
-        </Box>
+             
+            <Box
+              width={{ base: "5%", md: "13%", lg: "10%" }}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
+            >
+              <Text>IMAGE</Text>
+            </Box>
+            <Box
+              width={{ base: "10%", md: "27%", lg: "25%" }}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
+            >
+              <Text>PRODUCTS</Text>
+            </Box>
+            <Box
+              width={{ base: "5%", md: "7%", lg: "8%" }}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
+            >
+              <Text>PRICE</Text>
+            </Box>
+            <Box
+              width={{ base: "5%", md: "15%", lg: "15%" }}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
+            >
+              <Text>CATEGORY</Text>
+            </Box>
+            <Box
+              w={{ base: "5%", md: "13%", lg: "10%" }}
+              fontSize={{ base: "12px", md: "12px", lg: "md" }}
+            >
+              <Text>REMOVE </Text>
+            </Box>
+          </Box>
+          {datas.map((el, i) => (
+            <ProductItems
+              key={el.id}
+              i={i}
+              {...el}
+              handleDelete={handleDelete}
+              handleOpenDetails={handleOpenDetails}
+            />
+          ))}
+        </SimpleGrid>
       </Box>
- 
-  {/* ``````````````````````````````````````````Modal`````````````````````````````````````` */}
 
-  <Modal
-      
-         closeOnOverlayClick={false}
+      <Modal
+         
+        closeOnOverlayClick={false}
         isOpen={isOpen}
         onClose={onClose}
         size={{ base: "sm", md: "md" }}
       >
         <ModalOverlay />
-        <ModalContent  bgGradient="linear(to-r, #F8BBD0, #b3d4fc)"  color={"pink.700"}>
+        <ModalContent  color= "pink.600"
+        fontWeight={"bold"}
+        bgGradient='linear(to-l, blue.100, pink.100)'  >
           <ModalHeader>Edit Listing</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6} textAlign={"center"}>
-            <Avatar size={"2xl"} src={image}></Avatar>
+            <Avatar size={"2xl"} src={image1}></Avatar>
             <Box textAlign={"left"}>
               <Text p={"10px"} cursor={"pointer"} mt={"10px"}>
                 ID-{mid}
@@ -200,25 +207,25 @@ const Products = () => {
               <Input
                 border={"1px solid"}
                 cursor={"pointer"}
-                value={image}
+                value={image1}
                 onChange={(e) => {
                   SetImage(e.target.value);
                   console.log(e.target.value);
                 }}
               >
-                {/* Title- {modalDetail.image} */}
+                
               </Input>
-              <Text mt={"10px"}>Title:- </Text>
+              <Text mt={"10px"}>Discount :- </Text>
               <Input
                 border={"1px solid"}
                 cursor={"pointer"}
-                value={title}
+                value={discount}
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setDiscount(e.target.value);
                   console.log(e.target.value);
                 }}
               >
-                {/* Title- {modalDetail.details} */}
+                   
               </Input>
               <Text mt={"10px"}>Price:- </Text>
               <Input
@@ -230,7 +237,7 @@ const Products = () => {
                   console.log(e.target.value);
                 }}
               >
-                {/* Price- Rs {Math.floor(Number(modalDetail.product_price) * 60)} */}
+            
               </Input>
             </Box>
           </ModalBody>
@@ -240,7 +247,7 @@ const Products = () => {
               colorScheme="blue"
               mr={3}
               onClick={() => {
-                handleSubmitModalDetails(mid);
+                handleSubmitModalDetails();
                 onClose();
               }}
             >
@@ -252,9 +259,8 @@ const Products = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-
-     
     </Box>
+ 
   );
 };
 
