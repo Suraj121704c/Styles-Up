@@ -1,26 +1,18 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Admin } from "../Pages/Admin";
- 
-import Products from "../Pages/Products/Electronics";
-import Glasses from "../Pages/Products/Glasses";
 import Jewellery from "../Pages/Products/Jewellery";
-import Decoration from "../Pages/Products/Decoration";
-
 import { HomePage } from "../Pages/HomePage";
-
 import { Signup } from "../Pages/Signup";
-import { AutoMobiles } from "../Pages/Products/autoMobiles";
 import Cart from "../Admin/Pages/Cart";
 import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
-import PaymentDetails from "../Pages/PamentDetails"
+ 
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
-
 import Payment from "../Pages/Payment";
 import { Login } from "../Pages/Login";
 import { PrivateRoute } from "./PrivateRoute";
 import AdminLogin from "../Pages/AdminLogin";
-
+import PaymentDetails from "../Pages/PamentDetails";
 
 const AllRoutes = () => {
   return (

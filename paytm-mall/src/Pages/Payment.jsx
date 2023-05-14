@@ -1,9 +1,10 @@
-import { Box, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Navbar2 from "../Components/Navbar2";
 
 export default function Payment() {
+  const toast = useToast();
   return (
     <>
       <Navbar2 />
@@ -27,7 +28,16 @@ export default function Payment() {
           colorScheme="teal"
           bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
           color="white"
-          variant="solid">
+          variant="solid"
+          onClick={() => {
+            toast({
+              title: "Welcome home...",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+              position: "top",
+            });
+          }}>
           <Link to="/">GO TO HOME</Link>
         </Button>
       </Box>

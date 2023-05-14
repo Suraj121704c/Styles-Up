@@ -311,7 +311,7 @@ const Navbar = () => {
                   alt=""
                 />
                 <Text as="b" fontSize={{ base: "8px", sm: "md", lg: "md" }}>
-                  Login/SignUp
+                  Login
                 </Text>
               </Box>
             </Link>

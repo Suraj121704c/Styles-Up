@@ -120,7 +120,7 @@ const Jewellery = () => {
       <div>
         <div>
           <Flex m="0" px="2%">
-            <Box w="18%" m={0}>
+            <Box w={["22%","18%"]} m={0}>
               <VStack overflow={"none"} alignItems="flex-start">
                 <Text fontWeight="bold" mb="3px" color="blackAlpha.600">
                   Category
