@@ -13,7 +13,7 @@ import { Signup } from "../Pages/Signup";
 import { AutoMobiles } from "../Pages/Products/autoMobiles";
 import Cart from "../Admin/Pages/Cart";
 import { SingleUserPage } from "../Admin/Pages/SingleUserPage";
-
+import PaymentDetails from "../Pages/PamentDetails"
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 import Payment from "../Pages/Payment";
